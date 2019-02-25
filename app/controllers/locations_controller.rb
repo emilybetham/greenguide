@@ -7,16 +7,18 @@ class LocationsController < ApplicationController
 
   def new
     @location = Location.new
+    authorize @location
   end
 
   def create
-    authorize @location
+
     @location = Location.new(location_params)
     if @location.save
       redirect_to locations_path
     else
       render :new
     end
+    authorize @location
   end
 
   private
