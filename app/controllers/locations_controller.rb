@@ -1,9 +1,16 @@
 class LocationsController < ApplicationController
-  skip_before_action :authenticat_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
     # skip_policy_scope
-    @locations = Location.all
+    @locations = Location.where.not(latitude: nil, longitude: nil)
+
+    @markers = @locations.map do |location|
+      {
+        lng: location.longitude,
+        lat: location.latitude,
+      }
+    end
   end
 
   def new
@@ -16,6 +23,7 @@ class LocationsController < ApplicationController
       redirect_to locations_path
     else
       render :new
+    end
   end
 
   private
