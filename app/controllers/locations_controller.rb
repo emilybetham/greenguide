@@ -2,7 +2,7 @@ class LocationsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    # skip_policy_scope
+    skip_policy_scope
     @locations = Location.where.not(latitude: nil, longitude: nil)
 
     @markers = @locations.map do |location|
@@ -15,6 +15,7 @@ class LocationsController < ApplicationController
 
   def new
     @location = Location.new
+    authorize @location
   end
 
   def create
@@ -24,6 +25,7 @@ class LocationsController < ApplicationController
     else
       render :new
     end
+    authorize @location
   end
 
   private

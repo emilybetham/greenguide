@@ -1,0 +1,6 @@
+<%= simple_form_for(location) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :category, collection: ["Recyclage", "Composte", "Vêtement", "Alimentation", "Marché", "Evenement"] %>
+  <%= f.submit %>
+<% end %>

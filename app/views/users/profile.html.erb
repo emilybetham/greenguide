@@ -1,1 +1,25 @@
-profile.html.erb
+<div class="container">
+  <div class="header">
+    <h1>Mon profil</h1>
+  </div>
+
+  <div class="profile_description">
+    <img src="#" >
+    <h3><%= @user.name %></h3>
+    <p><%= @user.address %></p>
+  </div>
+
+  <div class="profile-links">
+      <p>Suggérer une adresse</p>
+      <p>Suggérer un évènement</p>
+      <p>Géolocalisation</p>
+  </div>
+
+  <div class="button">
+    <%= link_to destroy_user_session_path, method: :delete do %>
+      <i class="fa fa-sign-out"></i>
+      <%= t(".sign_out", default: "Déconnexion") %>
+    <% end %>
+  </div>
+</div>
+ <!-- <%#= render 'form', location: @location %> -->
