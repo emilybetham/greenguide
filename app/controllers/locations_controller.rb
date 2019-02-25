@@ -3,12 +3,15 @@ class LocationsController < ApplicationController
 
   def index
     skip_policy_scope
-    @locations = Location.where.not(latitude: nil, longitude: nil)
-
+    if params[:address].present?
+      @locations = Location.near(params[:address], 5)
+    else
+      @locations = Location.where.not(latitude: nil, longitude: nil)
+    end
     @markers = @locations.map do |location|
       {
         lng: location.longitude,
-        lat: location.latitude,
+        lat: location.latitude
       }
     end
   end

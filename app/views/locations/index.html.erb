@@ -1,6 +1,6 @@
 <!-- search-bar -->
 <div class="search-bar">
-  <%= form_tag method: :get do %>
+  <%= form_tag locations_path, method: :get do %>
     <%= text_field_tag :address,
     nil,
     placeholder: "Enter your address" %>
@@ -16,3 +16,4 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
+
