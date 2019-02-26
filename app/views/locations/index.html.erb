@@ -5,7 +5,7 @@
     nil,
     id: "location_address",
     placeholder: "Entrez votre adresse" %>
-    <%= select_tag "category", options_for_select([ "toutes catégories", "alimentation", "composte",  "événement", "marché", "recyclage", "vêtement" ], prompt: "catégories"),
+    <%= select_tag "category", options_for_select([ "toutes categories", "alimentation", "composte",  "evenement", "marché", "recyclage", "vetement" ], prompt: "toutes categories"),
     id: "filters" %>
     <%= submit_tag "Go!", id: "submit" %>
   <% end %>
