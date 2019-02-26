@@ -3,3 +3,56 @@
   margin: auto;
   padding-top: 32px;
 }
+
+label {
+  text-transform: uppercase;
+  color: #1F2041;
+}
+
+.form-control {
+  border-radius: 4px !important;
+  padding: 22px 15px 22px 15px;
+  margin-bottom: 2px;
+  box-shadow: none;
+}
+
+select#location_category {
+  padding: 10px !important;
+  height:45px;
+  color: grey;
+}
+
+.input-group {
+  position: relative;
+  width: 50%;
+  padding-bottom: 12px;
+}
+
+.input-icon {
+  position: absolute;
+  right: 18px;
+  z-index: 800;
+  top: 36px;
+}
+
+.button-form {
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 300px;
+  margin-top: 20px;
+}
+
+.submit-group {
+  position: relative;
+  width: 50%;
+}
+
+.submit-icon {
+  position: absolute;
+  right: -130px;
+  z-index: 800;
+  top: 31px;
+  color: white;
+  font-size: 20px;
+}
+
