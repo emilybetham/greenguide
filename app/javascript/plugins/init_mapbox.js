@@ -1,4 +1,5 @@
 import mapboxgl from 'mapbox-gl';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 const center = (map) => {
   navigator.geolocation.getCurrentPosition(
@@ -57,7 +58,8 @@ const initMapbox = () => {
     const map = buildMap();
     center(map);
     const markers = buildMarkers(mapElement, map);
-    // newCenter(); Should we add this?
+
+    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
   }
 }
 

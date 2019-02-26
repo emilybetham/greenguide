@@ -5,9 +5,9 @@ class LocationsController < ApplicationController
     skip_policy_scope
     Location::CATEGORIES.each do |category|
       if params[:address].present?
-        @locations = Location.near(params[:address], 20)
+        @locations = Location.near(params[:address], 5)
       elsif params[:address].present? && params[:category] == category
-        @locations = Location.near(params[:address], 20).where(category: category)
+        @locations = Location.near(params[:address], 5).where(category: category)
       elsif params[:category] == category
         @locations = Location.all.where(category: category)
       else
