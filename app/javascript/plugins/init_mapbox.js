@@ -26,7 +26,7 @@ const buildMap = () => {
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v10',
     center: [2.3514992, 48.8566101],
-    zoom: 13
+    zoom: 12
   });
 }
 
@@ -57,6 +57,7 @@ const initMapbox = () => {
     const map = buildMap();
     center(map);
     const markers = buildMarkers(mapElement, map);
+    // newCenter(); Should we add this?
   }
 }
 
