@@ -9,10 +9,43 @@ class LocationsController < ApplicationController
       @locations = Location.where.not(latitude: nil, longitude: nil)
     end
     @markers = @locations.map do |location|
-      {
-        lng: location.longitude,
-        lat: location.latitude
-      }
+      if location.category == "recyclage"
+        {
+          lng: location.longitude,
+          lat: location.latitude,
+          image_url: helpers.asset_url('location-pin.png')
+        }
+      elsif location.category == 'marché'
+        {
+          lng: location.longitude,
+          lat: location.latitude,
+          image_url: helpers.asset_url('pin-red.png')
+        }
+      elsif location.category == 'vetement'
+        {
+          lng: location.longitude,
+          lat: location.latitude,
+          image_url: helpers.asset_url('pin-violet.png')
+        }
+      elsif location.category == 'alimentation'
+        {
+          lng: location.longitude,
+          lat: location.latitude,
+          image_url: helpers.asset_url('pin-jaune.png')
+        }
+      elsif location.category == 'evenement'
+        {
+          lng: location.longitude,
+          lat: location.latitude,
+          image_url: helpers.asset_url('pin-orange.png')
+        }
+      else
+        {
+          lng: location.longitude,
+          lat: location.latitude,
+          image_url: helpers.asset_url('placeholder.png')
+        }
+      end
     end
   end
 
