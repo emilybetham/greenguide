@@ -12,3 +12,6 @@ initMapbox();
 // Autocomplete address
 import { initAutocomplete } from '../plugins/init_autocomplete';
 initAutocomplete();
+
+// Map searchbar
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
