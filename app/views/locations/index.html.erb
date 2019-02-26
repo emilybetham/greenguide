@@ -3,8 +3,9 @@
   <%= form_tag locations_path, method: :get do %>
     <%= text_field_tag :address,
     nil,
+    id: "location_address",
     placeholder: "Enter your address" %>
-    <%= submit_tag 'Go!', id: "submit" %>
+    <%= submit_tag "Go!", id: "submit" %>
   <% end %>
 </div>
 
