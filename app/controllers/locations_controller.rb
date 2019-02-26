@@ -3,49 +3,19 @@ class LocationsController < ApplicationController
 
   def index
     skip_policy_scope
-    if params[:address].present?
-      @locations = Location.near(params[:address], 5)
-    else
-      @locations = Location.where.not(latitude: nil, longitude: nil)
+    Location::CATEGORIES.each do |category|
+      if params[:category].present?
+        @locations = Location.all.where(category: params[:category])
+      else
+        @locations = Location.where.not(latitude: nil, longitude: nil)
+      end
     end
     @markers = @locations.map do |location|
-      if location.category == "recyclage"
-        {
-          lng: location.longitude,
-          lat: location.latitude,
-          image_url: helpers.asset_url('location-pin.png')
-        }
-      elsif location.category == 'marché'
-        {
-          lng: location.longitude,
-          lat: location.latitude,
-          image_url: helpers.asset_url('pin-red.png')
-        }
-      elsif location.category == 'vetement'
-        {
-          lng: location.longitude,
-          lat: location.latitude,
-          image_url: helpers.asset_url('pin-violet.png')
-        }
-      elsif location.category == 'alimentation'
-        {
-          lng: location.longitude,
-          lat: location.latitude,
-          image_url: helpers.asset_url('pin-jaune.png')
-        }
-      elsif location.category == 'evenement'
-        {
-          lng: location.longitude,
-          lat: location.latitude,
-          image_url: helpers.asset_url('pin-orange.png')
-        }
-      else
-        {
-          lng: location.longitude,
-          lat: location.latitude,
-          image_url: helpers.asset_url('placeholder.png')
-        }
-      end
+      {
+        lng: location.longitude,
+        lat: location.latitude,
+        image_url: helpers.asset_url(location_category_pin_name(location))
+      }
     end
   end
 
@@ -68,5 +38,17 @@ class LocationsController < ApplicationController
 
   def location_params
     params.require(:location).permit(:name, :description, :address, :category, :photo, :price)
+  end
+
+  def location_category_pin_name(location)
+    case location.category
+    when 'recyclage' then 'location-pin.png'
+    when 'marché' then 'pin-red.png'
+    when 'vetement' then 'pin-violet.png'
+    when 'alimentation' then 'pin-jaune.png'
+    when 'evenement' then 'pin-orange.png'
+    else
+      'placeholder.png'
+    end
   end
 end
