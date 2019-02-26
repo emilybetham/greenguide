@@ -1,9 +1,9 @@
 <div class="form-container">
   <%= simple_form_for(location) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :address, placeholder: "16 villa Gaudelet, 75011, Paris" %>
-    <%= f.input :category, collection: ["Recyclage", "Composte", "Vêtement", "Alimentation", "Marché", "Evenement"] %>
+    <%= f.input :name, label: "Nom" %>
+    <%= f.input :address, label: "Adresse", placeholder: "16 villa Gaudelet, 75011, Paris" %>
+    <%= f.input :category, label: "Catégorie", collection: ["Recyclage", "Composte", "Vêtement", "Alimentation", "Marché", "Evenement"] %>
     <%= f.input :description %>
-    <%= f.submit class: "button"%>
+    <%= f.submit "Ajouter une adresse", class: "button"%>
   <% end %>
 </div>
