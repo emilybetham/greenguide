@@ -1,9 +1,16 @@
 <div class="form-container">
   <%= simple_form_for(location) do |f| %>
-    <%= f.input :name, label: "Nom" %>
-    <%= f.input :address, label: "Adresse", placeholder: "16 villa Gaudelet, 75011, Paris" %>
-    <%= f.input :category, label: "Catégorie", collection: ["Recyclage", "Composte", "Vêtement", "Alimentation", "Marché", "Evenement"] %>
-    <%= f.input :description %>
-    <%= f.submit "Ajouter une adresse", class: "button"%>
+    <%= f.input :name, label: "Nom", placeholder: "Artisans du Monde" %>
+    <%= f.input :address, label: "Adresse", placeholder: "20 rue de Rochechouart, 75009, Paris" %>
+    <div class="input-group">
+      <%= image_tag "arrow-bottom.png", width: 20, class: "input-icon" %>
+      <%= f.input :category, label: "Catégorie", collection: Location::CATEGORIES, prompt: "Selectionner" %>
+    </div>
+    <%= f.input :description, label: "Déscription", placeholder: "Commerce équitable, produits d'Afrique, d'Amérique du Sud, d'Asie et d'Océanie" %>
+    <div class="submit-group">
+      <%= f.submit "Ajouter une adresse", class: "button button-form"%>
+      <i class="fas fa-arrow-right submit-icon"></i>
+    </div>
   <% end %>
 </div>
+
