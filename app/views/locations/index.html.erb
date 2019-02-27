@@ -19,18 +19,12 @@
         <%= submit_tag "Go!", id: "submit" %>
       <% end %>
     </div>
-    <div class="filter">
-    <%= link_to root_path do %>
+    <div class="filter" data-toggle="modal" data-target="#exampleModal">
       <%= image_tag 'controls.png', width: 20 %>
-    <% end %>
     </div>
   </div>
 </div>
 <!-- search-bar -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Filtrer par catégories
-</button>
-
 
 
 
