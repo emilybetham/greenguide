@@ -6,6 +6,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the styleshe
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox';
 
+global.initMapbox = initMapbox;
 initMapbox();
 
 
