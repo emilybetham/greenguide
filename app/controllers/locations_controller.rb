@@ -3,14 +3,10 @@ class LocationsController < ApplicationController
 
   def index
     skip_policy_scope
-    Location::CATEGORIES.each do |category|
-      if params[:category] == "toutes catégories"
-        @locations = Location.all
-      elsif params[:category].present? && params[:category] != "toutes catégories"
-        @locations = Location.all.where(category: params[:category])
-      else
-        @locations = Location.where.not(latitude: nil, longitude: nil)
-      end
+    if params[:search].present?
+      @locations = Location.where(category: params[:search][:categories])
+    else
+      @locations = Location.where.not(latitude: nil, longitude: nil)
     end
     @markers = @locations.map do |location|
       {
