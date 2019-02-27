@@ -1,5 +1,4 @@
 
-
 <div class="banner">
   <div class="banner-content">
     <div class="banner-top">
@@ -27,6 +26,10 @@
     </div>
   </div>
 </div>
+<!-- search-bar -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Filtrer par catégories
+</button>
 
 
 
@@ -39,3 +42,43 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
+
+
+
+
+<!-- <div class="modal-body">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>hvdehzvdhvezvdkz</p>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+ -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Catgéories</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <%= simple_form_for :search, method: :get, url: locations_path do |f| %>
+        <%= f.input :categories, collection: Location::CATEGORIES, as: :check_boxes %>
+        <%= f.submit 'Go !', class: 'btn btn-primary' %>
+      <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
