@@ -23,9 +23,10 @@ a {
   font-weight: 700 !important;
   font-size: 14px !important;
   color: $dark;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a:hover {
-  text-decoration: none;
+  text-decoration: none !important;
+  color: #1F2041 !important;
 }
