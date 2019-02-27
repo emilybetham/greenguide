@@ -4,12 +4,24 @@
 // @import "profile";
 // @import "map";
 
-h3, h4, a {
+h3, h4 {
   font-weight: 700 !important;
   font-size: 16px !important;
 }
 
-body {
-  background-color: #FBFBFB !important;
+h2 {
+  font-weight: 700 !important;
+  font-size: 24px !important;
 }
 
+body {
+  background-color: #FBFBFB !important;
+  color: $dark !important;
+}
+
+a {
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  color: $dark;
+  text-decoration: none;
+}

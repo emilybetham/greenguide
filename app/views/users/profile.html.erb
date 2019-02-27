@@ -7,24 +7,29 @@
   </div>
 </div>
 
-<div class="container">
+<div class="form-container">
   <div class="profile_description">
-
-    <div class="avatar_container">
       <%= image_tag "photo.png", class: "avatar" %>
       <!-- quand on mettra cl_image_tag avec cloudinary on rajoutera:  crop: :thumb, gravity: :face  -->
-    </div>
     <div class= "description_text">
-      <h3><%= @user.name %></h3>
+      <h2><%= @user.name %></h2>
       <p>13 avenue blabalbalb<%= @user.address %></p>
     </div>
   </div>
 
-  <div class="profile-links">
-      <p class="top">Suggérer une adresse</p>
-      <p>Suggérer un évènement</p>
-      <p>Géolocalisation</p>
+  <hr>
+  <%= link_to 'Suggérer une adresse', new_location_path %>
+  <hr>
+    <%= link_to 'Suggérer un évènement', new_location_path %>
+  <hr>
+  <%= link_to 'Vous avez une remarque ?', new_location_path %>
+  <hr>
+  <div class="geoloc">
+  <p>Géolocalisation</p>
+  <p><%= image_tag 'toggle-on.png', width: 30 %>
+  </p>
   </div>
+  <hr>
 
   <div class="button">
     <%= link_to destroy_user_session_path, method: :delete do %>
