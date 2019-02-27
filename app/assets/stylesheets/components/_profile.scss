@@ -9,15 +9,14 @@
 
 .description_text p {
   color: #7c7b7b;
-  font-size: 17px;
 }
 
-.profile-links p{
-  padding-bottom: 25px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+hr {
+  border-top: 1px solid $light-gray;
 }
 
-.top {
-  padding-top: 16px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+.geoloc {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
 }
