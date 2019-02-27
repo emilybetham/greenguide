@@ -1,0 +1,13 @@
+function refreshMap(newMap) {
+  const filteredMap = document.getElementById('map');
+  filteredMap.outerHTML = newMap;
+}
+
+function closeModal() {
+  const close = document.getElementById('close-modal').click();
+}
+
+refreshMap('<%= j render "map" %>');
+initMapbox();
+closeModal();
+

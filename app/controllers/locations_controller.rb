@@ -15,6 +15,10 @@ class LocationsController < ApplicationController
         image_url: helpers.asset_url(location_category_pin_name(location))
       }
     end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new
