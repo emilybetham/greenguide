@@ -10,29 +10,18 @@
   padding-top: 12px;
 }
 
-.header .x {
-    border: 1px solid #ffffff;
-    color: white;
-    width: 20px;
-    height: 20px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    transform: rotate(46deg);
-    margin: 0 0;
-    position: absolute;
-    top: 12px;
-    right: 9px;
-}
-
 .croix {
-  position: relative;
-}
-
-.header p {
+  width: 20px;
+  height: 20px;
+  transform: rotate(46deg);
   margin: 0 0;
   position: absolute;
-  top: -11.5px;
-  left: 4.5px;
+  top: 2px;
+  right: 5px;
+}
 
+.header a {
+  margin: 0 0;
+  color: white;
+  font-size: 30px !important;
 }
