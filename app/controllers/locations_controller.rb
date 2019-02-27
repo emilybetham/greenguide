@@ -4,7 +4,9 @@ class LocationsController < ApplicationController
   def index
     skip_policy_scope
     Location::CATEGORIES.each do |category|
-      if params[:category].present?
+      if params[:category] == "toutes catégories"
+        @locations = Location.all
+      elsif params[:category].present? && params[:category] != "toutes catégories"
         @locations = Location.all.where(category: params[:category])
       else
         @locations = Location.where.not(latitude: nil, longitude: nil)
@@ -44,9 +46,9 @@ class LocationsController < ApplicationController
     case location.category
     when 'recyclage' then 'location-pin.png'
     when 'marché' then 'pin-red.png'
-    when 'vetement' then 'pin-violet.png'
+    when 'vêtement' then 'pin-violet.png'
     when 'alimentation' then 'pin-jaune.png'
-    when 'evenement' then 'pin-orange.png'
+    when 'événement' then 'pin-orange.png'
     else
       'placeholder.png'
     end

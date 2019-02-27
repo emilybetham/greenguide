@@ -1,7 +1,7 @@
 <!-- search-bar -->
 <div class="search-bar">
  <%= form_tag locations_path, method: :get do %>
-    <%= select_tag "category", options_for_select([ "toutes categories", "alimentation", "composte",  "evenement", "marché", "recyclage", "vetement" ], prompt: "toutes categories"),
+    <%= select_tag "category", options_for_select([ "toutes catégories", "alimentation", "composte",  "événement", "marché", "recyclage", "vêtement" ], params[:category]),
     id: "filters" %>
     <%= submit_tag "Go!", id: "submit" %>
   <% end %>

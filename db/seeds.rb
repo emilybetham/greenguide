@@ -83,19 +83,19 @@ locations_attributes = [
   },
   {
     name:        'Elie\'s skate',
-    category:     'vetement',
+    category:     'vêtement',
     address:      '101, La Bâche, Mavilly-Mandelot, Côte-d\'Or, Bourgogne-Franche-Comté',
     description:  'A beautiful skate'
   },
   {
     name:         'Coralie\'s scooter',
-    category:     'vetement',
+    category:     'vêtement',
     address:      '196, La Reparerie, 36340, Mouhers, Indre, Centre-Val de Loire',
     description:  'Lovely trotinette'
   },
   {
     name:         'Hamza\'s palm',
-    category:     'vetement',
+    category:     'vêtement',
     address:      '4, Rue de la Poste, 37340, Ambillou, Indre-et-Loire, Centre-Val de Loire',
     description:  'Nice palm in Piccadilly'
   },
@@ -143,25 +143,25 @@ locations_attributes = [
   },
   {
     name:         'Dylan\'s skate',
-    category:     'evenement',
+    category:     'événement',
     address:      '56 rue Sedaine, 75011 Paris',
     description:  'Lovely skate'
   },
   {
     name:         'Claire\'s skate',
-    category:     'evenement',
+    category:     'événement',
     address:      '27 rue Leon Frot, 75011 Paris',
     description:  'Lovely skate'
   },
   {
     name:         'Leonie\'s skate',
-    category:     'evenement',
+    category:     'événement',
     address:      '19 rue du Temple, 75004 Paris',
     description:  'Lovely skate'
   },
   {
     name:         'Jad\'s skate',
-    category:     'evenement',
+    category:     'événement',
     address:      '9 rue jean louis renardon, 69650 Saint Germain au mont d\'or',
     description:  'Lovely skate'
   },
