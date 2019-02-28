@@ -1,4 +1,3 @@
-
 <div class="banner">
   <div class="banner-content">
     <div class="banner-top">
@@ -9,24 +8,13 @@
         <%= image_tag 'avatar.png', width: 40 %>
       <% end %>
     </div>
-
     <h2>TODO: type.js ou autr</h2>
-
     <!-- search-bar -->
-    <div class="search-bar">
-      <%= form_tag locations_path, method: :get do %>
-        <%= select_tag "category", options_for_select([ "toutes catégories", "alimentation", "composte",  "événement", "marché", "recyclage", "vêtement" ], params[:category]), id: "filters" %>
-        <%= submit_tag "Go!", id: "submit" %>
-      <% end %>
-    </div>
-    <div class="filter" data-toggle="modal" data-target="#categoriesModal">
+    <div class="filter" data-toggle="modal" data-target="#exampleModal">
       <%= image_tag 'controls.png', width: 20 %>
     </div>
   </div>
 </div>
-<!-- search-bar -->
-
-
 
 <!-- map -->
 <%= render "map" %>
