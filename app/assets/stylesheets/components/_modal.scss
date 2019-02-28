@@ -1,0 +1,50 @@
+
+.modal-title {
+  font-family: $headers-font;
+  font-size: 22px;
+}
+
+.modal-header {
+  padding: 15px 15px 8px 15px;
+}
+
+.collection_check_boxes {
+  margin-left: 10px;
+  font-weight: lighter;
+  margin-bottom: 30px;
+}
+
+.modal-content {
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 19px;
+  right: 16px;
+}
+
+#go-button {
+  position: absolute;
+  bottom: -19px;
+  right: 16px;
+}
+
+#close-modal {
+  position: absolute;
+  bottom: 42px;
+  left: 14px;
+  background-color: #d1cccc !important;
+  color: black;
+  font-weight: lighter !important;
+}
+
+.modal-footer {
+  margin-top: 30px;
+}
+
+.col-form-label {
+  border-bottom: 0px !important;
+  margin-bottom: -15px !important;
+
+}
