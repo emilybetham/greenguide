@@ -1,0 +1,4 @@
+      <div class="review">
+      <p><%= image_tag 'review-quotes' %>
+      Lorem ipsum dolor sit amet,  consectetur adipiscing elit, sed do eiusmod tempor incididunt...</p>
+      </div>
