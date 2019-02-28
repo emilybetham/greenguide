@@ -19,6 +19,9 @@ class LocationsController < ApplicationController
       format.html
       format.js
     end
+    @locations.each do |location|
+      @location = location
+    end
   end
 
   def new
