@@ -7,13 +7,6 @@ function closeModal() {
   const close = document.getElementById('close-modal').click();
 }
 
-function openModal() {
-  const d = document.querySelector(".filter");
-  d.addEventListener("click", (event) => {
-    console.log("hello")
-  })
-}
-
 refreshMap('<%= j render "map" %>');
 initMapbox();
 closeModal();
