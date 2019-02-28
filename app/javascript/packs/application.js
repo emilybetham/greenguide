@@ -7,8 +7,10 @@ import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the styleshe
 import { initMapbox } from '../plugins/init_mapbox';
 
 global.initMapbox = initMapbox;
-initMapbox();
+const map = initMapbox();
 
+import { initDirections } from '../plugins/init_mapbox';
+initDirections(map);
 
 // Autocomplete address
 import { initAutocomplete } from '../plugins/init_autocomplete';
