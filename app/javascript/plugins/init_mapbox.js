@@ -2,12 +2,27 @@ import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import MapboxDraw from '@mapbox/mapbox-gl-draw';
 
+const getUserCoordinates = () => {
+  const map = document.getElementById('map');
+  if (map) {
+   return new Promise((resolve) => {
+      const apiKey = map.dataset.googleApiKey;
+      const url = `https://www.googleapis.com/geolocation/v1/geolocate?key=${apiKey}`
+      fetch(url, {
+        method: 'POST'
+      })
+      .then(response => response.json())
+      .then(data => { resolve(data.location) });
+    });
+  }
+}
+
 const center = (map) => {
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      const crd = position.coords;
-      map.setCenter([crd.longitude,crd.latitude]);
-      map.setZoom(15);
+  // navigator.geolocation.getCurrentPosition(
+  //   (position) => {
+  //     const crd = position.coords;
+  //     map.setCenter([crd.longitude,crd.latitude]);
+  //     map.setZoom(15);
       map.addControl(new mapboxgl.GeolocateControl({
         positionOptions: {
           enableHighAccuracy: true,
@@ -20,8 +35,8 @@ const center = (map) => {
         const currentLocationControl = document.querySelector('.mapboxgl-ctrl-geolocate');
         currentLocationControl.click();
       }, 500);
-    }
-  );
+    // }
+  // );
 }
 
 const buildMap = () => {
@@ -115,15 +130,15 @@ const draw = new MapboxDraw({
  ]
 });
 
-const initDirections = (map) => {
+const initDirections = (map, userCoordinates) => {
   document.querySelectorAll(".marker").forEach((marker) => {
     marker.addEventListener("click", (event) => {
       const coordsMarker = event.currentTarget.id.split(',');
-      navigator.geolocation.getCurrentPosition((position) => {
-        const coordsUser = position.coords;
-        const newCoords = coordsUser.longitude + '%2C' + coordsUser.latitude + '%3B' + coordsMarker[0] + '%2C' + coordsMarker[1];
+      // navigator.geolocation.getCurrentPosition((position) => {
+      //   const coordsUser = position.coords;
+        const newCoords = userCoordinates.lng + '%2C' + userCoordinates.lat + '%3B' + coordsMarker[0] + '%2C' + coordsMarker[1];
         getMatch(map, newCoords);
-      });
+      // });
     });
   });
 }
@@ -174,5 +189,4 @@ const addRoute = (map, coords) => {
  };
 }
 
-export { initDirections };
-export { initMapbox };
+export { initDirections, initMapbox, getUserCoordinates };
