@@ -10,7 +10,6 @@
     </div>
     <h2>Vivez parisien, vivez écolo !</h2>
 
-
     <div class="filter" data-toggle="modal" data-target="#categoriesModal">
       <%= image_tag 'controls.png', width: 20 %>
     </div>
@@ -51,7 +50,9 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="photo-header" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= location.photo %>);"></div>
-        <button id="itinerary-btn" type="button" class="button">Itinéraire</button>
+        <button id="itinerary-btn" type="button" class="itinerary-btn <%="itinerary-btn-#{location.id}"%>">
+          <i class="fas fa-location-arrow"></i>
+        </button>
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">
             <%= location.name %>

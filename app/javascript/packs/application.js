@@ -4,11 +4,14 @@ import "bootstrap";
 // CSS
 import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
 // internal imports
-import { initMapbox } from '../plugins/init_mapbox';
+import { initMapbox, initDirections, getUserCoordinates } from '../plugins/init_mapbox';
 
 global.initMapbox = initMapbox;
-initMapbox();
+const map = initMapbox();
 
+getUserCoordinates().then(data => {
+  initDirections(map, data);
+});
 
 // Autocomplete address
 import { initAutocomplete } from '../plugins/init_autocomplete';

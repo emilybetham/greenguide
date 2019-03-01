@@ -1,13 +1,19 @@
 function refreshMap(newMap) {
-  const filteredMap = document.getElementById('map');
-  filteredMap.outerHTML = newMap;
+ const filteredMap = document.getElementById('map');
+ filteredMap.outerHTML = newMap;
 }
 
 function closeModal() {
-  const close = document.getElementById('close-modal').click();
+ const close = document.getElementById('close-modal').click();
+}
+
+function openModal() {
+ const d = document.querySelector(".filter");
+ d.addEventListener("click", (event) => {
+   console.log("hello")
+ })
 }
 
 refreshMap('<%= j render "map" %>');
 initMapbox();
 closeModal();
-

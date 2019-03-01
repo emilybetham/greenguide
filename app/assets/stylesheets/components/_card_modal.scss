@@ -65,6 +65,20 @@
   color: white !important;
 }
 
-// #itinerary-btn {
+.modal-content {
+ position: relative;
+}
 
-// }
+.itinerary-btn {
+    color: white;
+    background-color: #6FCF97 !important;
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 22px !important;
+    padding: 10px 12px !important;
+    border-radius: 50px !important;
+    position: absolute !important;
+    top: 181px !important;
+    right: 13px !important;
+    border: 1px solid #6FCF97;
+}
