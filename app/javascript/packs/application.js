@@ -10,7 +10,6 @@ global.initMapbox = initMapbox;
 const map = initMapbox();
 
 getUserCoordinates().then(data => {
-  console.log(data)
   initDirections(map, data);
 });
 

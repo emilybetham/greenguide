@@ -2,6 +2,7 @@ import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import MapboxDraw from '@mapbox/mapbox-gl-draw';
 
+
 const getUserCoordinates = () => {
   const map = document.getElementById('map');
   if (map) {
@@ -132,15 +133,21 @@ const draw = new MapboxDraw({
  ]
 });
 
+
+
 const initDirections = (map, userCoordinates) => {
   document.querySelectorAll(".marker").forEach((marker) => {
     marker.addEventListener("click", (event) => {
       const coordsMarker = event.currentTarget.id.split(',');
-      // navigator.geolocation.getCurrentPosition((position) => {
-      //   const coordsUser = position.coords;
+      // const modal = document.getElementById('cardModal-18');
+      // console.log(modal.id)
+      const cardModalId = event.currentTarget.dataset.target
+      const btnItinerary = document.querySelector(`${cardModalId} #itinerary-btn`);
+      btnItinerary.addEventListener("click", (event) => {
         const newCoords = userCoordinates.lng + '%2C' + userCoordinates.lat + '%3B' + coordsMarker[0] + '%2C' + coordsMarker[1];
         getMatch(map, newCoords);
-      // });
+        const close = document.querySelector(`${cardModalId} #card-close-modal`).click();
+      });
     });
   });
 }
