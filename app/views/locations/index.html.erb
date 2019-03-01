@@ -8,8 +8,7 @@
         <%= image_tag 'avatar.png', width: 40 %>
       <% end %>
     </div>
-    <h2>TODO: type.js ou autr</h2>
-
+    <h2>Vivez parisien, vivez écolo !</h2>
 
     <div class="filter" data-toggle="modal" data-target="#categoriesModal">
       <%= image_tag 'controls.png', width: 20 %>
@@ -46,35 +45,38 @@
 
 
 <!-- MODAL CARDS -->
-<div class="modal fade" id="cardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="photo-header"></div>
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">
-          <%= @location.name %>
-        </h5>
-        <p><%= @location.category %></p>
+<% @locations.each do |location| %>
+  <div class="modal fade" id="<%="cardModal-#{location.id}"%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="photo-header"></div>
+        <button id="itinerary-btn" type="button" class="button">Itinéraire</button>
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            <%= location.name %>
+          </h5>
+          <p><%= location.category %></p>
 
-          <span aria-hidden="true" type="button" class="close close-top-card-modal" data-dismiss="modal" aria-label="Close">&times;</span>
+            <span aria-hidden="true" type="button" class="close close-top-card-modal" data-dismiss="modal" aria-label="Close">&times;</span>
 
-      </div>
-      <div class="modal-body">
-        <p><%= image_tag 'gray-pin.png' %>
-        <%= @location.address %></p>
-        <p> <%= @location.price %></p>
-        <br>
-        <p> <%= @location.description %></p>
-      </div>
-      <div class="separation"></div>
-      <div class="card-reviews">
-        <p> <%= image_tag 'review-quotes.png' %>
-        Laissez un commentaire... </p>
-      </div>
-      <div class="card-modal-footer">
-        <button id="card-close-modal" type="button" class="button" data-dismiss="modal">Fermer</button>
+        </div>
+        <div class="modal-body">
+          <p><%= image_tag 'gray-pin.png' %>
+          <%= location.address %></p>
+          <p> <%= location.price %></p>
+          <br>
+          <p> <%= location.description %></p>
+        </div>
+        <div class="separation"></div>
+        <div class="card-reviews">
+          <p> <%= image_tag 'review-quotes.png' %>
+          Laissez un commentaire... </p>
+        </div>
+        <div class="card-modal-footer">
+          <button id="card-close-modal" type="button" class="button" data-dismiss="modal">Fermer</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
 
