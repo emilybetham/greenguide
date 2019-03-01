@@ -10,6 +10,9 @@
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
+.banner h2 {
+  margin-top: 6px !important;
+}
 .banner p {
   font-size: 25px;
   font-weight: lighter;
@@ -22,7 +25,7 @@
 }
 
 #map {
-  margin-top: -120px;
+  margin-top: -86px;
   height: 519px !important;
 }
 
@@ -43,3 +46,13 @@
   justify-content: space-between;
   padding: 10px;
 }
+
+.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+    margin: 0px 10px 0 0;
+    float: right;
+}
+
+.mapboxgl-ctrl-geocoder input[type='text'] {
+    font-size: 16px;
+  }
+
