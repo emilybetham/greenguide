@@ -12,7 +12,8 @@ class LocationsController < ApplicationController
       {
         lng: location.longitude,
         lat: location.latitude,
-        image_url: helpers.asset_url(location_category_pin_name(location))
+        image_url: helpers.asset_url(location_category_pin_name(location)),
+        location_id: location.id
       }
     end
     respond_to do |format|

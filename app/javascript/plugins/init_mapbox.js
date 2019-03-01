@@ -58,10 +58,12 @@ const buildMarkers = (mapElement, map) => {
     element.style.backgroundSize = 'contain';
     element.style.width = '25px';
     element.style.height = '25px';
+    element.dataset.toggle = "modal";
+    element.dataset.target = `#cardModal-${marker.location_id}`;
 
     new mapboxgl.Marker(element)
-    .setLngLat([ marker.lng, marker.lat ])
-    .addTo(map);
+      .setLngLat([ marker.lng, marker.lat ])
+      .addTo(map);
   });
   return markers;
 }
