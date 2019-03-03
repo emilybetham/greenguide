@@ -10,9 +10,8 @@
     </div>
     <h2>Vivez parisien, vivez écolo !</h2>
 
-    <div class="filter" data-toggle="modal" data-target="#categoriesModal">
-      <%= image_tag 'controls.png', width: 20 %>
-    </div>
+    <%= render "searchbar" %>
+
   </div>
 </div>
 
@@ -60,7 +59,6 @@
           <p><%= location.category %></p>
 
             <span aria-hidden="true" type="button" class="close close-top-card-modal" data-dismiss="modal" aria-label="Close">&times;</span>
-
         </div>
         <div class="modal-body">
           <p><%= image_tag 'gray-pin.png' %>

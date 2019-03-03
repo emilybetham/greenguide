@@ -1,5 +1,5 @@
 import mapboxgl from 'mapbox-gl';
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+// import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import MapboxDraw from '@mapbox/mapbox-gl-draw';
 
 
@@ -79,7 +79,7 @@ const initMapbox = () => {
     center(map);
     const markers = buildMarkers(mapElement, map);
 
-    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
+    // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
     return map;
   }
 }

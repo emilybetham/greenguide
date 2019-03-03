@@ -3,7 +3,15 @@ class LocationsController < ApplicationController
 
   def index
     skip_policy_scope
-    if params[:search].present?
+    if params[:address].present? && params[:search].present?
+      locations = Location.near(params[:address], 20)
+      @locations = []
+      locations.each do |location|
+        @locations << location if location.category == params[:search][:categories]
+      end
+    elsif params[:address].present?
+      @locations = Location.near(params[:address], 20)
+    elsif params[:search].present?
       @locations = Location.where(category: params[:search][:categories])
     else
       @locations = Location.where.not(latitude: nil, longitude: nil)

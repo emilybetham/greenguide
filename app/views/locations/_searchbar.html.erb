@@ -1,0 +1,13 @@
+<div class="address-form" id="search-bar">
+<%= form_tag "locations", method: :get, remote: true, class: "form-home"  do %>
+  <%= text_field_tag :address,
+  nil,
+  id: "address-id",
+  class: "form-control",
+  placeholder: "Entrez une adresse" %>
+  <div class="filter" data-toggle="modal" data-target="#categoriesModal">
+    <%= image_tag 'controls.png', width: 20 %>
+  </div>
+  <%= submit_tag 'Go!', id: "submit" %>
+<% end %>
+</div>
