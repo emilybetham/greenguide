@@ -59,15 +59,16 @@ class LocationsController < ApplicationController
     params.require(:location).permit(:name, :description, :address, :category, :photo, :price)
   end
 
+
   def location_category_pin_name(location)
     case location.category
-    when 'recyclage' then 'location-pin.png'
-    when 'marché' then 'pin-red.png'
-    when 'vêtement' then 'pin-violet.png'
-    when 'alimentation' then 'pin-jaune.png'
-    when 'événement' then 'pin-orange.png'
+    when 'recyclage' then 'recyclage.png'
+    when 'marché' then 'marche.png'
+    when 'vêtement' then 'vetement.png'
+    when 'jardin partagé' then 'jardin.png'
+    when 'événement' then 'event.png'
     else
-      'placeholder.png'
+      'compost.png'
     end
   end
 end

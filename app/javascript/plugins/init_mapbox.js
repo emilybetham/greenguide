@@ -3,41 +3,28 @@ import mapboxgl from 'mapbox-gl';
 import MapboxDraw from '@mapbox/mapbox-gl-draw';
 
 
-const getUserCoordinates = () => {
-  const map = document.getElementById('map');
-  if (map) {
-   return new Promise((resolve) => {
-      const apiKey = map.dataset.googleApiKey;
-      const url = `https://www.googleapis.com/geolocation/v1/geolocate?key=${apiKey}`
-      fetch(url, {
-        method: 'POST'
-      })
-      .then(response => response.json())
-      .then(data => { resolve(data.location) });
+const getUserCoordinates = (map, callback) => {
+  const mapElement = document.getElementById('map');
+  if (mapElement) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      callback(map, position.coords);
     });
   }
 }
 
 const center = (map) => {
-  // navigator.geolocation.getCurrentPosition(
-  //   (position) => {
-  //     const crd = position.coords;
-  //     map.setCenter([crd.longitude,crd.latitude]);
-  //     map.setZoom(15);
-      map.addControl(new mapboxgl.GeolocateControl({
-        positionOptions: {
-          enableHighAccuracy: true,
-          timeout: 5000,
-          maximumAge: 0
-        },
-        trackUserLocation: true
-      }));
-      setTimeout(() => {
-        const currentLocationControl = document.querySelector('.mapboxgl-ctrl-geolocate');
-        currentLocationControl.click();
-      }, 500);
-    // }
-  // );
+  map.addControl(new mapboxgl.GeolocateControl({
+    positionOptions: {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    },
+    trackUserLocation: true
+  }));
+  setTimeout(() => {
+    const currentLocationControl = document.querySelector('.mapboxgl-ctrl-geolocate');
+    currentLocationControl.click();
+  }, 500);
 }
 
 const buildMap = (mapElement) => {
@@ -65,13 +52,14 @@ const buildMarkers = (mapElement, map) => {
   markers.forEach((marker) => {
     const element = document.createElement('div');
     element.className = 'marker';
-    element.id = `${[marker.lng, marker.lat]}`;
     element.style.backgroundImage = `url('${marker.image_url}')`;
     element.style.backgroundSize = 'contain';
     element.style.width = '25px';
     element.style.height = '25px';
     element.dataset.toggle = "modal";
     element.dataset.target = `#cardModal-${marker.location_id}`;
+    element.dataset.longitude = marker.lng;
+    element.dataset.latitude = marker.lat;
 
     new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
@@ -96,6 +84,29 @@ const initMapbox = () => {
 }
 
 // ITINERAIRES
+const bindMarkersToRoute = (map, userCoordinates) => {
+  document.querySelectorAll(".marker").forEach((marker) => {
+    marker.addEventListener('click', (event) => {
+      //: get markers coordinates
+      const { latitude, longitude } = event.currentTarget.dataset;
+      // event listener on the btn (only this one)
+      const cardModalId = event.currentTarget.dataset.target
+      const btnItinerary = document.querySelector(`${cardModalId} #itinerary-btn`);
+      btnItinerary.addEventListener("click", (event) => {
+        // draw the route
+        const token = document.getElementById('map').dataset.mapboxApiKey;
+        const url = `https://api.mapbox.com/directions/v5/mapbox/walking/${userCoordinates.longitude},${userCoordinates.latitude};${longitude},${latitude}?access_token=${token}&geometries=geojson`
+        fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            const travelCoordinates = data.routes[0].geometry.coordinates.map((point) => { return point });
+            addRoute(map, travelCoordinates);
+          });
+        const close = document.querySelector(`${cardModalId} #card-close-modal`).click();
+      });
+    });
+  });
+};
 
 const draw = new MapboxDraw({
  displayControlsDefault: false,
@@ -144,69 +155,38 @@ const draw = new MapboxDraw({
  ]
 });
 
-
-
-const initDirections = (map, userCoordinates) => {
-  document.querySelectorAll(".marker").forEach((marker) => {
-    marker.addEventListener("click", (event) => {
-      const coordsMarker = event.currentTarget.id.split(',');
-      // const modal = document.getElementById('cardModal-18');
-      // console.log(modal.id)
-      const cardModalId = event.currentTarget.dataset.target
-      const btnItinerary = document.querySelector(`${cardModalId} #itinerary-btn`);
-      btnItinerary.addEventListener("click", (event) => {
-        const newCoords = userCoordinates.lng + '%2C' + userCoordinates.lat + '%3B' + coordsMarker[0] + '%2C' + coordsMarker[1];
-        getMatch(map, newCoords);
-        const close = document.querySelector(`${cardModalId} #card-close-modal`).click();
-      });
-    });
-  });
-}
-
-// make a directions request
-const getMatch = (map, newCoords) => {
-  const apiKey = document.getElementById('map').getAttribute('data-mapbox-api-key');
-  const url = 'https://api.mapbox.com/directions/v5/mapbox/walking/' + newCoords + '.json?geometries=geojson&access_token=' + apiKey;
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      const travelCoordinates = data.routes[0].geometry.coordinates.map((point) => { return point });
-      addRoute(map, travelCoordinates);
-    });
-}
-
 // adds the route as a layer on the map
 const addRoute = (map, coords) => {
  // check if the route is already loaded
- if (map.getSource('route')) {
+  if (map.getSource('route')) {
     map.removeLayer('route')
     map.removeSource('route')
- } else {
-   map.addLayer({
-     "id": "route",
-     "type": "line",
-     "source": {
-       "type": "geojson",
-       "data": {
-         "type": "Feature",
-         "geometry": {
-           "type": "LineString",
-           "coordinates": coords
-         },
-         "properties": {},
-       }
-     },
-     "layout": {
-       "line-join": "round",
-       "line-cap": "round"
-     },
-     "paint": {
-       "line-color": "#3b9ddd",
-       "line-width": 8,
-       "line-opacity": 0.8
-     }
-   });
- };
-}
+  } else {
+    map.addLayer({
+      "id": "route",
+      "type": "line",
+      "source": {
+        "type": "geojson",
+        "data": {
+          "type": "Feature",
+          "geometry": {
+            "type": "LineString",
+            "coordinates": coords
+          },
+          "properties": {},
+        }
+      },
+      "layout": {
+        "line-join": "round",
+        "line-cap": "round"
+      },
+      "paint": {
+        "line-color": "#3b9ddd",
+        "line-width": 8,
+        "line-opacity": 0.8
+      }
+    });
+  };
+};
 
-export { initDirections, initMapbox, getUserCoordinates };
+export { initMapbox, getUserCoordinates, bindMarkersToRoute };
