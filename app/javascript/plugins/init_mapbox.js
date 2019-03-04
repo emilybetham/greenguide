@@ -78,7 +78,6 @@ const bindMarkersToRoute = (map, userCoordinates) => {
     marker.addEventListener('click', (event) => {
       //: get markers coordinates
       const { latitude, longitude } = event.currentTarget.dataset;
-
       // event listener on the btn (only this one)
       const cardModalId = event.currentTarget.dataset.target
       const btnItinerary = document.querySelector(`${cardModalId} #itinerary-btn`);
