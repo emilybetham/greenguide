@@ -1,0 +1,7 @@
+<div id="review-form">
+  <%= simple_form_for [location, review], remote: true do |f| %>
+    <%= f.input :comment %>
+    <%= f.input :rating, collection: [1, 2, 3, 4, 5] %>
+    <%= f.submit 'Go !', class: 'button', id:'go-button' %>
+  <% end %>
+</div>
