@@ -58,9 +58,7 @@
             <%= location.name %>
           </h5>
           <p><%= location.category %></p>
-
             <span aria-hidden="true" type="button" class="close close-top-card-modal" data-dismiss="modal" aria-label="Close">&times;</span>
-
         </div>
         <div class="modal-body">
           <p><%= image_tag 'gray-pin.png' %>
@@ -69,11 +67,29 @@
             <p><%= location.price %></p>
           <% end %>
           <p> <%= simple_format location.description %></p>
+          <p> Location ID = <%= location.id %></p>
         </div>
         <div class="separation"></div>
         <div class="card-reviews">
-          <p> <%= image_tag 'review-quotes.png' %>
-          Laissez un commentaire... </p>
+          <% if location.reviews.count == 0 %>
+            <p> <%= image_tag 'review-quotes.png' %>
+            Laissez un commentaire...</p>
+            <div id="<%="review-form-#{location.id}"%>">
+              <%= render 'add_comments_review', location: location, review: Review.new %>
+            </div>
+            <div id="<%="review-container-#{location.id}"%>">
+            </div>
+          <% else %>
+            <p><%= image_tag 'review-quotes.png' %></p>
+            <div id="<%="review-form-#{location.id}"%>">
+              <%= render 'add_comments_review', location: location, review: Review.new %>
+            </div>
+            <div id="<%="review-container-#{location.id}"%>">
+              <% location.reviews.reverse_each do |review| %>
+                <%= render "reviews/show", review: review %>
+              <% end %>
+            </div>
+          <% end %>
         </div>
         <div class="card-modal-footer">
           <button id="card-close-modal" type="button" class="button" data-dismiss="modal">Fermer</button>

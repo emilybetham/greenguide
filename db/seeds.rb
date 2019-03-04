@@ -2,22 +2,26 @@ users_attributes = [
   {
     name:         'Emily',
     email:        'emily@gmail.com',
-    password:     'password'
+    password:     'password',
+    photo:        'http://www.policelocale.be/files/5318/attachments/1604fc5ad08b1e718077602ba3923432.jpg'
   },
   {
     name:         'Dania',
     email:        'dania@gmail.com',
-    password:     'password'
+    password:     'password',
+    photo:        'http://www.policelocale.be/files/5318/attachments/1604fc5ad08b1e718077602ba3923432.jpg'
   },
   {
     name:         'Celia',
     email:        'celia@gmail.com',
-    password:     'password'
+    password:     'password',
+    photo:        'http://www.policelocale.be/files/5318/attachments/1604fc5ad08b1e718077602ba3923432.jpg'
   },
   {
     name:         'Julia',
     email:        'julia@gmail.com',
-    password:     'password'
+    password:     'password',
+    photo:        'http://www.policelocale.be/files/5318/attachments/1604fc5ad08b1e718077602ba3923432.jpg'
   }
 ]
 User.destroy_all
@@ -407,7 +411,7 @@ end
 locations = JSON.parse(File.read('verre.json'))
 locations.each do |raw_location|
   location = Location.new(
-    name: "Colonnes à verre",
+    name: "Colonne à verre",
     category: "recyclage",
     address:"#{raw_location["fields"]["ad_nvo"]}, #{raw_location["fields"]["voie"]}, #{raw_location["fields"]["ardt"]}, Paris",
     description: "Point de recyclage du verre",
@@ -444,8 +448,8 @@ locations.each do |raw_location|
   )
 
   location.save!
-  puts "#{location.address}"
 end
 
 puts 'Seeded'
 
+dania_review = Review.create(rating: 2, comment: "blbalabla", location_id: 29, user_id: 10)
