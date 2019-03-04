@@ -40,13 +40,25 @@ const center = (map) => {
   // );
 }
 
-const buildMap = () => {
-  return new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10',
-    center: [2.3514992, 48.8566101],
-    zoom: 12
-  });
+const buildMap = (mapElement) => {
+  // DO an if else for the dataset being present, get .longtitude
+  const searchedAddressCoordinates = JSON.parse(mapElement.dataset.searchedAddressCoordinates);
+  console.log(searchedAddressCoordinates);
+  if (searchedAddressCoordinates === null) {
+    return new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v10',
+      center: [2.3514992, 48.8566101],
+      zoom: 12
+    });
+  } else {
+    return new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v10',
+      center: searchedAddressCoordinates,
+      zoom: 15
+    });
+  };
 }
 
 const buildMarkers = (mapElement, map) => {
@@ -75,7 +87,7 @@ const initMapbox = () => {
   if (mapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
 
-    const map = buildMap();
+    const map = buildMap(mapElement);
     center(map);
     const markers = buildMarkers(mapElement, map);
 

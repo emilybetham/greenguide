@@ -11,36 +11,16 @@
     <h2>Vivez parisien, vivez écolo !</h2>
 
     <%= render "searchbar" %>
-
+    <div class="filter" data-toggle="modal" data-target="#categoriesModal">
+      <%= image_tag 'controls.png', width: 20 %>
+    </div>
   </div>
 </div>
 
 <!-- map -->
 <%= render "map" %>
 
-<!-- MODAL FILTER -->
-<div class="modal fade" id="categoriesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="header">
-        <h3>Filtrer</h3>
-        <span aria-hidden="true" type="button" class="close-filter" data-dismiss="modal" aria-label="Close">&times;</span>
-      </div>
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Catégories</h5>
-      </div>
-      <div class="modal-body modal-body-filter">
-      <%= simple_form_for :search, method: :get,  url: locations_path, remote: true do |f| %>
-        <%= f.input :categories, collection: Location::CATEGORIES, as: :check_boxes %>
-        <%= f.submit 'Go !', class: 'button', id:'go-button' %>
-      <% end %>
-      </div>
-      <div class="modal-footer">
-        <button id="close-modal" type="button" class="button" data-dismiss="modal">Fermer</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 
 <!-- MODAL CARDS -->
