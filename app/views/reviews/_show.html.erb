@@ -1,6 +1,17 @@
-<p> <%= review.comment %> </p>
-<p> <%= review.rating %> </p>
-<p> <%= review.user.name %> </p>
-<p> <%= review.user.email %> </p>
-<div class="photo-avatar" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= review.user.photo %>);">
+<div id="card_review">
+  <p class= "p_comment"> « <%= review.comment %> »</p>
+  <div class= "review-user-content">
+    <div> <%= image_tag review.user.photo, class: "photo-avatar-comment" %></div>
+    <div class= "review-rating-name">
+      <p class= "p_name"> <%= review.user.name %> </p>
+      <div id="p_review_rating">
+        <% review.rating.times do %>
+          <i class="fas fa-star" style = "color: #49C1FB"></i>
+        <% end %>
+        <% (5 - review.rating).times do %>
+          <i class="far fa-star" style = "color: #49C1FB"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
