@@ -1,20 +1,32 @@
 function refreshMap(newMap) {
  const filteredMap = document.getElementById('map');
  filteredMap.outerHTML = newMap;
-}
+};
 
 function closeModal() {
  const close = document.getElementById('close-modal').click();
-}
+};
 
 function openModal() {
  const d = document.querySelector(".filter");
  d.addEventListener("click", (event) => {
    console.log("hello")
  })
-}
+};
+
+// function allCategoriesSelector() {
+//   const allCategories = ('<%= Location::CATEGORIES %>')
+//   console.log(allCategories);
+//     allCategories.addEventListener("click", (event) => {
+//       allCategories.forEach((category) => {
+//       category.click();
+//     })
+//   })
+// };
 
 refreshMap('<%= j render "map" %>');
+
 initMapbox();
 closeModal();
+// allCategoriesSelector();
 

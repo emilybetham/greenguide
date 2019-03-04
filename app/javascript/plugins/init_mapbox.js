@@ -43,7 +43,6 @@ const center = (map) => {
 const buildMap = (mapElement) => {
   // DO an if else for the dataset being present, get .longtitude
   const searchedAddressCoordinates = JSON.parse(mapElement.dataset.searchedAddressCoordinates);
-  console.log(searchedAddressCoordinates);
   if (searchedAddressCoordinates === null) {
     return new mapboxgl.Map({
       container: 'map',

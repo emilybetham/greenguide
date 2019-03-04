@@ -16,7 +16,7 @@
           <h5 class="modal-title" id="exampleModalLabel">Catégories</h5>
         </div>
         <div class="modal-body modal-body-filter">
-          <%= f.input :categories, collection: Location::CATEGORIES, as: :check_boxes %>
+          <%= f.input :categories, input_html: { id:"categories" }, collection: Location::CATEGORIES, as: :check_boxes %>
           <%= f.submit 'Go !', class: 'button', id:'go-button' %>
         </div>
         <div class="modal-footer">
