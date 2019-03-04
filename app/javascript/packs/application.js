@@ -11,7 +11,7 @@ global.initMapbox = initMapbox;
 // 1. Draw map
 const map = initMapbox();
 // 2. Get User Position and Bind Markers to Routes
-const coordinates = getUserCoordinates(bindMarkersToRoute);
+const coordinates = getUserCoordinates(map, bindMarkersToRoute);
 
 
 // Autocomplete address

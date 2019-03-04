@@ -3,11 +3,11 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import MapboxDraw from '@mapbox/mapbox-gl-draw';
 
 
-const getUserCoordinates = (callback) => {
-  const map = document.getElementById('map');
-  if (map) {
+const getUserCoordinates = (map, callback) => {
+  const mapElement = document.getElementById('map');
+  if (mapElement) {
     navigator.geolocation.getCurrentPosition((position) => {
-      callback(position.coords);
+      callback(map, position.coords);
     });
   }
 }
@@ -73,7 +73,7 @@ const initMapbox = () => {
 }
 
 // ITINERAIRES
-const bindMarkersToRoute = (userCoordinates) => {
+const bindMarkersToRoute = (map, userCoordinates) => {
   document.querySelectorAll(".marker").forEach((marker) => {
     marker.addEventListener('click', (event) => {
       //: get markers coordinates
