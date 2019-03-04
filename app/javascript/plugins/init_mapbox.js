@@ -145,37 +145,6 @@ const draw = new MapboxDraw({
  ]
 });
 
-
-
-const initDirections = (map, userCoordinates) => {
-  document.querySelectorAll(".marker").forEach((marker) => {
-    marker.addEventListener("click", (event) => {
-      const coordsMarker = event.currentTarget.id.split(',');
-      // const modal = document.getElementById('cardModal-18');
-      // console.log(modal.id)
-      const cardModalId = event.currentTarget.dataset.target
-      const btnItinerary = document.querySelector(`${cardModalId} #itinerary-btn`);
-      btnItinerary.addEventListener("click", (event) => {
-        const newCoords = userCoordinates.lng + '%2C' + userCoordinates.lat + '%3B' + coordsMarker[0] + '%2C' + coordsMarker[1];
-        getMatch(map, newCoords);
-        const close = document.querySelector(`${cardModalId} #card-close-modal`).click();
-      });
-    });
-  });
-}
-
-// make a directions request
-const getMatch = (map, newCoords) => {
-  const apiKey = document.getElementById('map').getAttribute('data-mapbox-api-key');
-  const url = 'https://api.mapbox.com/directions/v5/mapbox/walking/' + newCoords + '.json?geometries=geojson&access_token=' + apiKey;
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      const travelCoordinates = data.routes[0].geometry.coordinates.map((point) => { return point });
-      addRoute(map, travelCoordinates);
-    });
-};
-
 // adds the route as a layer on the map
 const addRoute = (map, coords) => {
  // check if the route is already loaded
