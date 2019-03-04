@@ -85,6 +85,7 @@ const initMapbox = () => {
 
 // ITINERAIRES
 const bindMarkersToRoute = (map, userCoordinates) => {
+  console.log('coucou')
   document.querySelectorAll(".marker").forEach((marker) => {
     marker.addEventListener('click', (event) => {
       //: get markers coordinates
