@@ -1,0 +1,12 @@
+function refreshForm(innerHTML, locationId) {
+  const newReviewForm = document.getElementById(`review-form-${locationId}`);
+  newReviewForm.innerHTML = innerHTML;
+}
+
+function addReview(reviewHTML, locationId) {
+  const reviews = document.getElementById(`review-container-${locationId}`);
+  reviews.insertAdjacentHTML('afterbegin', reviewHTML);
+}
+
+addReview('<%= j render "reviews/show", review: @review %>', '<%= @review.location.id %>');
+refreshForm('<%= j render "locations/add_comments_review", location: @location, review: Review.new %>', '<%= @review.location.id %>');

@@ -2,22 +2,26 @@ users_attributes = [
   {
     name:         'Emily',
     email:        'emily@gmail.com',
-    password:     'password'
+    password:     'password',
+    photo:        'http://www.policelocale.be/files/5318/attachments/1604fc5ad08b1e718077602ba3923432.jpg'
   },
   {
     name:         'Dania',
     email:        'dania@gmail.com',
-    password:     'password'
+    password:     'password',
+    photo:        'http://www.policelocale.be/files/5318/attachments/1604fc5ad08b1e718077602ba3923432.jpg'
   },
   {
     name:         'Celia',
     email:        'celia@gmail.com',
-    password:     'password'
+    password:     'password',
+    photo:        'http://www.policelocale.be/files/5318/attachments/1604fc5ad08b1e718077602ba3923432.jpg'
   },
   {
     name:         'Julia',
     email:        'julia@gmail.com',
-    password:     'password'
+    password:     'password',
+    photo:        'http://www.policelocale.be/files/5318/attachments/1604fc5ad08b1e718077602ba3923432.jpg'
   }
 ]
 User.destroy_all
@@ -240,3 +244,4 @@ end
 
 puts 'Seeded'
 
+dania_review = Review.create(rating: 2, comment: "blbalabla", location_id: 29, user_id: 10)
