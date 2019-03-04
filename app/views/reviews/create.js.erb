@@ -10,3 +10,4 @@ function addReview(reviewHTML, locationId) {
 
 addReview('<%= j render "reviews/show", review: @review %>', '<%= @review.location.id %>');
 refreshForm('<%= j render "locations/add_comments_review", location: @location, review: Review.new %>', '<%= @review.location.id %>');
+initStarRating();

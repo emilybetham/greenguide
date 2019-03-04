@@ -73,7 +73,7 @@
         <div class="card-reviews">
           <% if location.reviews.count == 0 %>
             <p> <%= image_tag 'review-quotes.png' %>
-            Laissez un commentaire...</p>
+            Laissez le premier commentaire...</p>
             <div id="<%="review-form-#{location.id}"%>">
               <%= render 'add_comments_review', location: location, review: Review.new %>
             </div>
@@ -84,10 +84,13 @@
             <div id="<%="review-form-#{location.id}"%>">
               <%= render 'add_comments_review', location: location, review: Review.new %>
             </div>
+            <p id="autres-commentaires"> Autres commentaires: </p>
             <div id="<%="review-container-#{location.id}"%>">
-              <% location.reviews.reverse_each do |review| %>
+              <% location.reviews.last(3).reverse_each do |review| %>
                 <%= render "reviews/show", review: review %>
               <% end %>
+              <div id="other_reviews"><i class="fas fa-angle-down"></i>
+              </div>
             </div>
           <% end %>
         </div>
