@@ -1,21 +1,19 @@
 import "bootstrap";
-
-// Mapbox
-// CSS
 import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'; // Map searchbar
+
 // internal imports
-import { initMapbox, initDirections, getUserCoordinates } from '../plugins/init_mapbox';
+import { initMapbox, getUserCoordinates, bindMarkersToRoute } from '../plugins/init_mapbox';
+import { initAutocomplete } from '../plugins/init_autocomplete';
 
 global.initMapbox = initMapbox;
-const map = initMapbox();
 
-getUserCoordinates().then(data => {
-  initDirections(map, data);
-});
+// 1. Draw map
+const map = initMapbox();
+// 2. Get User Position and Bind Markers to Routes
+const coordinates = getUserCoordinates(bindMarkersToRoute);
+
 
 // Autocomplete address
-import { initAutocomplete } from '../plugins/init_autocomplete';
 initAutocomplete();
 
-// Map searchbar
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
