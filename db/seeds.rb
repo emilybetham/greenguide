@@ -394,46 +394,46 @@ locations.each do |raw_location|
   location.save
 end
 
-locations = JSON.parse(File.read('trilib.json'))
-locations.each do |raw_location|
-  location = Location.new(
-    name: "Station Trilib",
-    category: "recyclage",
-    address:"#{raw_location["fields"]["localisationfo_street"]}, #{raw_location["fields"]["localisationfo_postalcode"]}, #{raw_location["fields"]["localisationfo_town"]}",
-    description: "Les espaces de tri sont composés de 4 à 6 modules de tri sélectif ouverts 24h/24.",
-    photo: "https://api-site-cdn.paris.fr/images/84438?w=Large",
-    status: "validate"
-  )
-  location.save
-end
+# locations = JSON.parse(File.read('trilib.json'))
+# locations.each do |raw_location|
+#   location = Location.new(
+#     name: "Station Trilib",
+#     category: "recyclage",
+#     address:"#{raw_location["fields"]["localisationfo_street"]}, #{raw_location["fields"]["localisationfo_postalcode"]}, #{raw_location["fields"]["localisationfo_town"]}",
+#     description: "Les espaces de tri sont composés de 4 à 6 modules de tri sélectif ouverts 24h/24.",
+#     photo: "https://api-site-cdn.paris.fr/images/84438?w=Large",
+#     status: "validate"
+#   )
+#   location.save
+# end
 
 
-locations = JSON.parse(File.read('verre.json'))
-locations.each do |raw_location|
-  location = Location.new(
-    name: "Colonne à verre",
-    category: "recyclage",
-    address:"#{raw_location["fields"]["ad_nvo"]}, #{raw_location["fields"]["voie"]}, #{raw_location["fields"]["ardt"]}, Paris",
-    description: "Point de recyclage du verre",
-    photo: "http://www.policelocale.be/files/5318/attachments/1604fc5ad08b1e718077602ba3923432.jpg",
-    status: "validate"
-  )
-  location.save
-end
+# locations = JSON.parse(File.read('verre.json'))
+# locations.each do |raw_location|
+#   location = Location.new(
+#     name: "Colonne à verre",
+#     category: "recyclage",
+#     address:"#{raw_location["fields"]["ad_nvo"]}, #{raw_location["fields"]["voie"]}, #{raw_location["fields"]["ardt"]}, Paris",
+#     description: "Point de recyclage du verre",
+#     photo: "http://www.policelocale.be/files/5318/attachments/1604fc5ad08b1e718077602ba3923432.jpg",
+#     status: "validate"
+#   )
+#   location.save
+# end
 
-locations = JSON.parse(File.read('marches.json'))
-locations.each do |raw_location|
-  location = Location.new(
-    name: raw_location["fields"]["marche"],
-    category: "marché",
-    address:raw_location["fields"]["adresse_complete_poi_approchant"],
-    description: "Marché #{raw_location["fields"]["type"]}.
-    #{"Lundi : #{raw_location["fields"]["lundi"]}\n" if raw_location["fields"]["lundi"]}#{"Mardi : #{raw_location["fields"]["mardi"]}\n" if raw_location["fields"]["mardi"]}#{"Mercredi : #{raw_location["fields"]["mercredi"]}\n" if raw_location["fields"]["mercredi"]}#{"Jeudi : #{raw_location["fields"]["jeudi"]}\n" if raw_location["fields"]["jeudi"]}#{"Vendredi : #{raw_location["fields"]["vendredi"]}\n" if raw_location["fields"]["vendredi"]}#{"Samedi : #{raw_location["fields"]["samedi"]}\n" if raw_location["fields"]["samedi"]}#{"Dimanche : #{raw_location["fields"]["dimanche"]}\n" if raw_location["fields"]["dimanche"]}",
-    photo: "https://images.unsplash.com/photo-1488459716781-31db52582fe9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-    status: "validate"
-  )
-  location.save
-end
+# locations = JSON.parse(File.read('marches.json'))
+# locations.each do |raw_location|
+#   location = Location.new(
+#     name: raw_location["fields"]["marche"],
+#     category: "marché",
+#     address:raw_location["fields"]["adresse_complete_poi_approchant"],
+#     description: "Marché #{raw_location["fields"]["type"]}.
+#     #{"Lundi : #{raw_location["fields"]["lundi"]}\n" if raw_location["fields"]["lundi"]}#{"Mardi : #{raw_location["fields"]["mardi"]}\n" if raw_location["fields"]["mardi"]}#{"Mercredi : #{raw_location["fields"]["mercredi"]}\n" if raw_location["fields"]["mercredi"]}#{"Jeudi : #{raw_location["fields"]["jeudi"]}\n" if raw_location["fields"]["jeudi"]}#{"Vendredi : #{raw_location["fields"]["vendredi"]}\n" if raw_location["fields"]["vendredi"]}#{"Samedi : #{raw_location["fields"]["samedi"]}\n" if raw_location["fields"]["samedi"]}#{"Dimanche : #{raw_location["fields"]["dimanche"]}\n" if raw_location["fields"]["dimanche"]}",
+#     photo: "https://images.unsplash.com/photo-1488459716781-31db52582fe9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+#     status: "validate"
+#   )
+#   location.save
+# end
 
 locations = JSON.parse(File.read('jardinspartages.json'))
 locations.each do |raw_location|
@@ -442,7 +442,7 @@ locations.each do |raw_location|
     name: "#{raw_location["fields"]["type_jard"]}, #{raw_location["fields"]["nom_gerant"]}",
     category: "jardin partagé",
     address: "#{raw_location["fields"]["adresse"]}, #{raw_location["fields"]["arrdt"]}, Paris",
-    description: "Le jardin partagé est un espace vert cultivé et animé par les habitants. C'est un lieu de vie ouvert sur le quartier qui favorise les rencontres entre générations et entre cultures. Géré par des riverains regroupés en association, il facilite les relations entre les différents lieux de vie de l'arrondissement : écoles, maisons de retraite, hôpitaux...",
+    description: "Le jardin partagé est un espace vert cultivé et animé par les habitants.",
     photo: "https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
     status: "validate"
   )
