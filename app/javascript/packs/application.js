@@ -21,3 +21,7 @@ const coordinates = getUserCoordinates(map, bindMarkersToRoute);
 initAutocomplete();
 initStarRating();
 
+
+// Map searchbar
+// import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+
