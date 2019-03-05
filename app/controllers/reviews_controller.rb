@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @review.rating = 0 if @review.rating.nil?
     @location = Location.find(params[:location_id])
     @review.location = @location
     @review.user = current_user

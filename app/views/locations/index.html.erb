@@ -31,7 +31,7 @@
   <div class="modal fade" id="<%="cardModal-#{location.id}"%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="photo-header" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= location.photo %>);"></div>
+        <div class="photo-header" style="background: url(<%= location.photo %>);"></div>
         <button id="itinerary-btn" type="button" class="itinerary-btn <%="itinerary-btn-#{location.id}"%>">
           <i class="fas fa-location-arrow"></i>
         </button>
@@ -49,7 +49,6 @@
             <p><%= location.price %></p>
           <% end %>
           <p> <%= simple_format location.description %></p>
-          <p class="hidden"> Location ID = <%= location.id %></p>
         </div>
         <div class="separation"></div>
         <div class="card-reviews">
@@ -71,7 +70,14 @@
               <% location.reviews.last(3).reverse_each do |review| %>
                 <%= render "reviews/show", review: review %>
               <% end %>
-              <div id="other_reviews"><i class="fas fa-angle-down"></i>
+              <div id="toggle_other_reviews">
+                <i class="fleche fas fa-angle-down"></i>
+                <div class="other_reviews hidden">
+                  <% hidden_reviews = location.reviews.count - 3 %>
+                  <% location.reviews.first(hidden_reviews).reverse_each do |review| %>
+                    <%= render "reviews/show", review: review %>
+                  <% end %>
+                </div>
               </div>
             </div>
           <% end %>

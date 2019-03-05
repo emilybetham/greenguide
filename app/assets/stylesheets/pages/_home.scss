@@ -61,13 +61,28 @@
   padding-top: 21px !important;
 }
 
+.button-home {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
 .button-home a {
   vertical-align: text-top;
+  margin-left: -23px;
+  display: flex !important;
+  align-items: center !important;
 }
+
+#custom-btn-home {
+  line-height: 27px !important;
+  width: 178px;
+  margin-top: 9px !important;
+  }
 
 .fa-check-circle {
   font-size: 20px;
   position: absolute;
-  bottom: 125px;
-  right: 89px;
+  bottom: 12px;
+  right: 13px;
 }
