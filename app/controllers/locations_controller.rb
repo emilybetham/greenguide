@@ -59,7 +59,6 @@ class LocationsController < ApplicationController
     params.require(:location).permit(:name, :description, :address, :category, :photo, :price)
   end
 
-
   def location_category_pin_name(location)
     case location.category
     when 'recyclage' then 'recyclage.png'
