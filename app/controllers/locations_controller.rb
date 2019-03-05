@@ -3,19 +3,21 @@ class LocationsController < ApplicationController
 
   def index
     skip_policy_scope
-    if params.dig(:search, :address).present? && params.dig(:search, :categories).present?
+    address = params.dig(:search, :address)
+    categories = params.dig(:search, :categories)
+    if (address.present? && address != "") && (categories.present? && categories != [""])
       result = Geocoder.search(params[:search][:address]).first
       @searched_address_coordinates = [result.longitude, result.latitude] if result
       if params[:search][:categories].include? Location::CATEGORIES.first
-        @locations = Location.near(params[:search][:address], 20)
+        @locations = Location.near([result.latitude, result.longitude], 20)
       else
         @locations = Location.where(category: params[:search][:categories]).near(params[:search][:address], 20)
       end
-    elsif params.dig(:search, :address).present?
+    elsif (address.present? && address != "")
       result = Geocoder.search(params[:search][:address]).first
       @searched_address_coordinates = [result.longitude, result.latitude]
-      @locations = Location.near(params[:search][:address], 20)
-    elsif params.dig(:search, :categories).present?
+      @locations = Location.near([result.latitude, result.longitude], 20)
+    elsif categories.present? && categories != [""]
       if params[:search][:categories].include? Location::CATEGORIES.first
         @locations = Location.all
       else
