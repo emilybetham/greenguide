@@ -1,7 +1,7 @@
-<%= simple_form_for :search, url: locations_path, method: :get, remote: true, class: "form-home" do |f| %>
+<%= simple_form_for :search, url: locations_path, method: :get, remote: true  do |f| %>
   <div class="address-form" id="search-bar">
     <%= f.input :address, input_html: { id: "address-id", class: "form-control", placeholder: "Entrez une adresse"} %>
-  <%= submit_tag "", id: "submit" %>
+
   </div>
 
   <!-- MODAL FILTER -->

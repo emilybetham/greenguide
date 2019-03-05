@@ -1,5 +1,4 @@
 <div class="banner">
-  <div class="gradient"></div>
   <div class="banner-content">
     <div class="banner-top">
       <%= link_to root_path do %>
@@ -9,13 +8,17 @@
         <%= image_tag 'avatar.png', width: 40 %>
       <% end %>
     </div>
-    <h2>Vivez parisien, vivez écolo !</h2>
+    <h2 id="slogan">Vivez parisien, vivez écolo !</h2>
 
     <%= render "searchbar" %>
+
     <div class="filter" data-toggle="modal" data-target="#categoriesModal">
       <%= image_tag 'controls.png', id:"filter-inner-img", width: 30 %>
     </div>
   </div>
+  <div class="gradient">
+  </div>
+  <i id="fold-banner" class="fas fa-chevron-circle-up"></i>
 </div>
 
 <!-- map -->
