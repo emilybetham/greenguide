@@ -394,18 +394,18 @@ locations.each do |raw_location|
   location.save
 end
 
-# locations = JSON.parse(File.read('trilib.json'))
-# locations.each do |raw_location|
-#   location = Location.new(
-#     name: "Station Trilib",
-#     category: "recyclage",
-#     address:"#{raw_location["fields"]["localisationfo_street"]}, #{raw_location["fields"]["localisationfo_postalcode"]}, #{raw_location["fields"]["localisationfo_town"]}",
-#     description: "Les espaces de tri sont composés de 4 à 6 modules de tri sélectif ouverts 24h/24.",
-#     photo: "https://api-site-cdn.paris.fr/images/84438?w=Large",
-#     status: "validate"
-#   )
-#   location.save
-# end
+locations = JSON.parse(File.read('trilib.json'))
+locations.each do |raw_location|
+  location = Location.new(
+    name: "Station Trilib",
+    category: "recyclage",
+    address:"#{raw_location["fields"]["localisationfo_street"]}, #{raw_location["fields"]["localisationfo_postalcode"]}, #{raw_location["fields"]["localisationfo_town"]}",
+    description: "Les espaces de tri sont composés de 4 à 6 modules de tri sélectif ouverts 24h/24.",
+    photo: "https://api-site-cdn.paris.fr/images/84438?w=Large",
+    status: "validate"
+  )
+  location.save
+end
 
 
 # locations = JSON.parse(File.read('verre.json'))
@@ -421,19 +421,19 @@ end
 #   location.save
 # end
 
-# locations = JSON.parse(File.read('marches.json'))
-# locations.each do |raw_location|
-#   location = Location.new(
-#     name: raw_location["fields"]["marche"],
-#     category: "marché",
-#     address:raw_location["fields"]["adresse_complete_poi_approchant"],
-#     description: "Marché #{raw_location["fields"]["type"]}.
-#     #{"Lundi : #{raw_location["fields"]["lundi"]}\n" if raw_location["fields"]["lundi"]}#{"Mardi : #{raw_location["fields"]["mardi"]}\n" if raw_location["fields"]["mardi"]}#{"Mercredi : #{raw_location["fields"]["mercredi"]}\n" if raw_location["fields"]["mercredi"]}#{"Jeudi : #{raw_location["fields"]["jeudi"]}\n" if raw_location["fields"]["jeudi"]}#{"Vendredi : #{raw_location["fields"]["vendredi"]}\n" if raw_location["fields"]["vendredi"]}#{"Samedi : #{raw_location["fields"]["samedi"]}\n" if raw_location["fields"]["samedi"]}#{"Dimanche : #{raw_location["fields"]["dimanche"]}\n" if raw_location["fields"]["dimanche"]}",
-#     photo: "https://images.unsplash.com/photo-1488459716781-31db52582fe9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-#     status: "validate"
-#   )
-#   location.save
-# end
+locations = JSON.parse(File.read('marches.json'))
+locations.each do |raw_location|
+  location = Location.new(
+    name: raw_location["fields"]["marche"],
+    category: "marché",
+    address:raw_location["fields"]["adresse_complete_poi_approchant"],
+    description: "Marché #{raw_location["fields"]["type"]}.
+    #{"Lundi : #{raw_location["fields"]["lundi"]}\n" if raw_location["fields"]["lundi"]}#{"Mardi : #{raw_location["fields"]["mardi"]}\n" if raw_location["fields"]["mardi"]}#{"Mercredi : #{raw_location["fields"]["mercredi"]}\n" if raw_location["fields"]["mercredi"]}#{"Jeudi : #{raw_location["fields"]["jeudi"]}\n" if raw_location["fields"]["jeudi"]}#{"Vendredi : #{raw_location["fields"]["vendredi"]}\n" if raw_location["fields"]["vendredi"]}#{"Samedi : #{raw_location["fields"]["samedi"]}\n" if raw_location["fields"]["samedi"]}#{"Dimanche : #{raw_location["fields"]["dimanche"]}\n" if raw_location["fields"]["dimanche"]}",
+    photo: "https://images.unsplash.com/photo-1488459716781-31db52582fe9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+    status: "validate"
+  )
+  location.save
+end
 
 locations = JSON.parse(File.read('jardinspartages.json'))
 locations.each do |raw_location|
