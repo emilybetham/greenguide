@@ -95,12 +95,18 @@ const bindMarkersToRoute = (map, userCoordinates) => {
       btnItinerary.addEventListener("click", (event) => {
         // draw the route
         const token = document.getElementById('map').dataset.mapboxApiKey;
-        const url = `https://api.mapbox.com/directions/v5/mapbox/walking/${userCoordinates.longitude},${userCoordinates.latitude};${longitude},${latitude}?access_token=${token}&geometries=geojson`
+        const url = `https://api.mapbox.com/directions/v5/mapbox/walking/${userCoordinates.longitude},${userCoordinates.latitude};${longitude},${latitude}?steps=true&access_token=${token}&geometries=geojson`
         fetch(url)
           .then(response => response.json())
           .then(data => {
             const travelCoordinates = data.routes[0].geometry.coordinates.map((point) => { return point });
             addRoute(map, travelCoordinates);
+            const instructions = document.getElementById('instructions');
+            const steps = data.routes[0].legs[0].steps;
+
+            const tripInstructions = [];
+            console.log(btnItinerary.dataset.logo)
+            instructions.innerHTML = '<div class="duration">Durée du trajet ' + Math.floor(data.routes[0].legs[0].duration / 60) + ' minutes' + `<img src="${btnItinerary.dataset.logo}" class="img-walker">` + '</div>';
           });
         const close = document.querySelector(`${cardModalId} #card-close-modal`).click();
       });
