@@ -31,10 +31,18 @@
         <h5 class="modal-title" id="exampleModalLabel">Catégories</h5>
       </div>
       <div class="modal-body modal-body-filter">
-      <%= simple_form_for :search, method: :get,  url: locations_path, remote: true do |f| %>
-        <%= f.input :categories, collection: Location::CATEGORIES, as: :check_boxes %>
-        <%= f.submit 'Go !', class: 'button', id:'go-button' %>
-      <% end %>
+        <%= simple_form_for :search, method: :get,  url: locations_path, remote: true do |f| %>
+          <div class="container category-choices">
+            <input type="hidden" name="search[categories][]" value="">
+            <% Location::CATEGORIES.each do |categorie| %>
+              <div class="select-category">
+                <input class="hidden" type="checkbox" value="<%= categorie %>" name="search[categories][]" id="search_categories_<%= categorie %>">
+                <label class="category-choice" for="search_categories_<%= categorie %>"><%= categorie %></label>
+              </div>
+            <% end %>
+          </div>
+          <%= f.submit 'Go !', class: 'button', id:'go-button' %>
+        <% end %>
       </div>
       <div class="modal-footer">
         <button id="close-modal" type="button" class="button" data-dismiss="modal">Fermer</button>
@@ -97,4 +105,6 @@
     </div>
   </div>
 <% end %>
+
+
 
