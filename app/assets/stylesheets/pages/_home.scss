@@ -53,12 +53,12 @@
 }
 
 .home-description p {
-  padding-top: 32px;
+  padding-top: 20px;
   padding-left: 16px;
 }
 
 .home-description p:last-child {
-  padding-top: 21px !important;
+  padding-top: 15px !important;
 }
 
 .button-home {
@@ -85,4 +85,27 @@
   position: absolute;
   bottom: 12px;
   right: 13px;
+}
+
+.home-markers-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-markers-container {
+  margin: 0 25px 0 25px;
+}
+
+.home-markers-content {
+  text-align: center;
+  color: white !important;
+  min-width: 90px;
+}
+
+.home-markers-content p {
+  padding-top: 5px;
+}
+
+.home-description h2  {
+  margin: 0!important;
 }
