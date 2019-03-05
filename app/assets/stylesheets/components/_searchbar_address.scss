@@ -5,6 +5,10 @@
   font-family: $body-font;
 }
 
+.simple_form.search {
+  margin-top: 24px !important;
+}
+
 .ap-suggestion {
   display: flex !important;
   padding-left: 9px;
@@ -28,4 +32,8 @@
   flex: 0 1 0;
   margin-left: 0px !important;
   padding-left: 10px !important;
+}
+
+#search-bar .form-control-label {
+ font-size: 0px;
 }
