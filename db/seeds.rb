@@ -344,35 +344,35 @@ locations_attributes = [
     category:     'événement',
     address:      '56 rue Sedaine, 75011 Paris',
     description:  'Festival de musique et d\'art, tous les fonds seront donné aux associations ecologiques.',
-    photo:        'http://www.efflorescenceculturelle.com/wp-content/uploads/2017/06/WeLoveGreen2017_23.jpg'
+    photo:        'https://images.unsplash.com/photo-1472653816316-3ad6f10a6592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80'
   },
   {
     name:         'Soirée écolo',
     category:     'événement',
     address:      '11 Rue Crespin du Gast, 75011 Paris',
     description:  'Super soirée pour discuter/echanger sur l\'ecologie! Venez nombreux!',
-    photo:        'http://www.efflorescenceculturelle.com/wp-content/uploads/2017/06/WeLoveGreen2017_23.jpg'
+    photo:        'https://images.unsplash.com/photo-1472653816316-3ad6f10a6592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80'
   },
   {
     name:         'Soirée écolo',
     category:     'événement',
     address:      '27 rue Leon Frot, 75011 Paris',
     description:  'Super soirée pour discuter/echanger sur l\'ecologie! Venez nombreux!',
-    photo:        'http://www.efflorescenceculturelle.com/wp-content/uploads/2017/06/WeLoveGreen2017_23.jpg'
+    photo:        'https://images.unsplash.com/photo-1472653816316-3ad6f10a6592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80'
   },
   {
     name:         'Talk écolo',
     category:     'événement',
     address:      '19 rue du Temple, 75004 Paris',
     description:  'Venez ecouter les professionels en ecologie de Paris!',
-    photo:        'http://www.efflorescenceculturelle.com/wp-content/uploads/2017/06/WeLoveGreen2017_23.jpg'
+    photo:        'https://images.unsplash.com/photo-1472653816316-3ad6f10a6592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80'
   },
   {
     name:         'Marche pour l\'environnement',
     category:     'événement',
     address:      '9 rue jean louis renardon, 69650 Saint Germain au mont d\'or',
     description:  'Marchons ensemble pour proteger notre environnement!',
-    photo:        'http://www.efflorescenceculturelle.com/wp-content/uploads/2017/06/WeLoveGreen2017_23.jpg'
+    photo:        'https://images.unsplash.com/photo-1472653816316-3ad6f10a6592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80'
   },
 ]
 

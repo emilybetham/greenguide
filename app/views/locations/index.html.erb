@@ -71,7 +71,7 @@
                 <%= render "reviews/show", review: review %>
               <% end %>
               <div id="toggle_other_reviews">
-                <i class="fas fa-angle-down"></i>
+                <i class="fleche fas fa-angle-down"></i>
                 <div class="other_reviews hidden">
                   <% hidden_reviews = location.reviews.count - 3 %>
                   <% location.reviews.first(hidden_reviews).reverse_each do |review| %>
