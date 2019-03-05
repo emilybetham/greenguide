@@ -1,5 +1,5 @@
 import mapboxgl from 'mapbox-gl';
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+// import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import MapboxDraw from '@mapbox/mapbox-gl-draw';
 
 
@@ -27,13 +27,24 @@ const center = (map) => {
   }, 500);
 }
 
-const buildMap = () => {
-  return new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10',
-    center: [2.3514992, 48.8566101],
-    zoom: 12
-  });
+const buildMap = (mapElement) => {
+  // DO an if else for the dataset being present, get .longtitude
+  const searchedAddressCoordinates = JSON.parse(mapElement.dataset.searchedAddressCoordinates);
+  if (searchedAddressCoordinates === null) {
+    return new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v10',
+      center: [2.3514992, 48.8566101],
+      zoom: 12
+    });
+  } else {
+    return new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v10',
+      center: searchedAddressCoordinates,
+      zoom: 15
+    });
+  };
 }
 
 const buildMarkers = (mapElement, map) => {
@@ -63,17 +74,18 @@ const initMapbox = () => {
   if (mapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
 
-    const map = buildMap();
+    const map = buildMap(mapElement);
     center(map);
     const markers = buildMarkers(mapElement, map);
 
-    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
+    // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
     return map;
   }
 }
 
 // ITINERAIRES
 const bindMarkersToRoute = (map, userCoordinates) => {
+  console.log('coucou')
   document.querySelectorAll(".marker").forEach((marker) => {
     marker.addEventListener('click', (event) => {
       //: get markers coordinates
