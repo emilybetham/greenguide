@@ -19,7 +19,7 @@
 }
 
 .modal-body {
-  min-height: 125px;
+  min-height: 95px;
   p {
     color: rgba(31, 32, 65, 0.75);
   }
@@ -81,4 +81,13 @@
     top: 181px !important;
     right: 13px !important;
     border: 1px solid #6FCF97;
+}
+
+.new_review {
+  position: relative;
+}
+
+.review-button {
+  bottom: 7px !important;
+  right: -1px !important;
 }
