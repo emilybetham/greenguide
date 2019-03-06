@@ -54,8 +54,8 @@ const buildMarkers = (mapElement, map) => {
     element.className = 'marker';
     element.style.backgroundImage = `url('${marker.image_url}')`;
     element.style.backgroundSize = 'contain';
-    element.style.width = '30px';
-    element.style.height = '30px';
+    element.style.width = '40px';
+    element.style.height = '40px';
     element.dataset.toggle = "modal";
     element.dataset.target = `#cardModal-${marker.location_id}`;
     element.dataset.longitude = marker.lng;

@@ -1,8 +1,7 @@
 .category-choices {
-  display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 20px 0;
+  margin: 30px 0;
 }
 
 .modal-body-filter {
@@ -34,6 +33,10 @@
 
 .select-category > input:checked + .category-choice {
   opacity: 1;
+}
+
+.select-category {
+  margin: 5px;
 }
 
 label.category-choice {
