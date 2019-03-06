@@ -2,6 +2,6 @@
   <%= simple_form_for [location, review], remote: true do |f| %>
     <%= f.input :comment, label: 'commentaire' %>
     <%= f.input :rating, label: 'note', collection: [1, 2, 3, 4, 5] %>
-    <%= f.submit 'Go !', class: 'button review-button', id:'go-button' %>
+    <%= f.submit 'Enregistrer', class: 'button review-button', id:'go-button' %>
   <% end %>
 </div>
