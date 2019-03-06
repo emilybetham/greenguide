@@ -1,7 +1,7 @@
 <div id="card_review">
   <p class= "p_name"> <%= review.user.name %></p>
   <div class= "review-user-content">
-    <div> <%= image_tag review.user.photo, class: "photo-avatar-comment" %></div>
+    <div> <%= image_tag review.user&.photo, class: "photo-avatar-comment" %></div>
     <div class= "review-rating-name">
       <p class= "p_comment"> « <%= review.comment %> »</p>
       <div id="p_review_rating">
