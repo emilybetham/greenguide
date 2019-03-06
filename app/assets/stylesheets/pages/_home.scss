@@ -2,63 +2,27 @@
   position:relative;
 }
 
-.home-background img {
-  max-height: 100vh;
-}
-
-.home-backgroung-img::after {
-  display: block;
-  position: relative;
-  background-color: $gray;
-  background: rgba(61, 61, 61, 0.49);
-  margin-top: -100vh;
-  height: 100vh;
-  width: 100%;
-  content: '';
-}
-
-
 .home-logo {
   text-align: center;
-  padding-top: 15px;
-  padding-bottom: 0px;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 
 .home-wrapper {
   background-color: $dark;
-  width: 353px;
-  height: 96.1vh;
-  background: rgba(31, 32, 65, 0.93);
-  border-radius: 15px 15px 0px 0px;
+  width: 100%;
+  height: 100vh;
   position:absolute;
-  left: 11px;
-  top: 21px;
 }
 .home-description {
   color: white !important;
   width: 318px;
 }
 
-.home-description ul {
-  list-style: none;
-}
-
-.home-description li {
-  display: flex;
-  align-items: center;
-}
-
-.home-description h2 {
-  font-size: 55px !important;
-}
-
 .home-description p {
-  padding-top: 20px;
-  padding-left: 16px;
-}
-
-.home-description p:last-child {
-  padding-top: 15px !important;
+  margin: 10px -40px 0 26px;
+  margin: 10px 0 0px 23px;
+  font-size: 24px;
 }
 
 .button-home {
@@ -89,7 +53,7 @@
 
 .home-markers-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .home-markers-container {
@@ -100,12 +64,12 @@
   text-align: center;
   color: white !important;
   min-width: 90px;
+  padding: 8px 10px 5px 10px;
 }
 
 .home-markers-content p {
   padding-top: 5px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
-.home-description h2  {
-  margin: 0!important;
-}
