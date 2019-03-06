@@ -3,25 +3,25 @@ users_attributes = [
     name:         'Emily',
     email:        'emily@gmail.com',
     password:     'password',
-    photo:        'http://www.policelocale.be/files/5318/attachments/1604fc5ad08b1e718077602ba3923432.jpg'
+    photo:        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Crystal_Clear_kdm_user_female.svg/1024px-Crystal_Clear_kdm_user_female.svg.png'
   },
   {
     name:         'Dania',
     email:        'dania@gmail.com',
     password:     'password',
-    photo:        'http://www.policelocale.be/files/5318/attachments/1604fc5ad08b1e718077602ba3923432.jpg'
+    photo:        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Crystal_Clear_kdm_user_female.svg/1024px-Crystal_Clear_kdm_user_female.svg.png'
   },
   {
     name:         'Celia',
     email:        'celia@gmail.com',
     password:     'password',
-    photo:        'http://www.policelocale.be/files/5318/attachments/1604fc5ad08b1e718077602ba3923432.jpg'
+    photo:        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Crystal_Clear_kdm_user_female.svg/1024px-Crystal_Clear_kdm_user_female.svg.png'
   },
   {
     name:         'Julia',
     email:        'julia@gmail.com',
     password:     'password',
-    photo:        'http://www.policelocale.be/files/5318/attachments/1604fc5ad08b1e718077602ba3923432.jpg'
+    photo:        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Crystal_Clear_kdm_user_female.svg/1024px-Crystal_Clear_kdm_user_female.svg.png'
   }
 ]
 User.destroy_all
@@ -338,41 +338,6 @@ locations_attributes = [
     address:      '125 boulevard Saint Germain, 75006 Paris',
     description:  'Boutique vintage où l’on pèse ses fringues comme les légumes du marché.',
     photo:        'https://images.unsplash.com/photo-1520006403909-838d6b92c22e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'
-  },
-  {
-    name:         'Festival écolo',
-    category:     'événement',
-    address:      '56 rue Sedaine, 75011 Paris',
-    description:  'Festival de musique et d\'art, tous les fonds seront donné aux associations ecologiques.',
-    photo:        'https://images.unsplash.com/photo-1472653816316-3ad6f10a6592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80'
-  },
-  {
-    name:         'Soirée écolo',
-    category:     'événement',
-    address:      '11 Rue Crespin du Gast, 75011 Paris',
-    description:  'Super soirée pour discuter/echanger sur l\'ecologie! Venez nombreux!',
-    photo:        'https://images.unsplash.com/photo-1472653816316-3ad6f10a6592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80'
-  },
-  {
-    name:         'Soirée écolo',
-    category:     'événement',
-    address:      '27 rue Leon Frot, 75011 Paris',
-    description:  'Super soirée pour discuter/echanger sur l\'ecologie! Venez nombreux!',
-    photo:        'https://images.unsplash.com/photo-1472653816316-3ad6f10a6592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80'
-  },
-  {
-    name:         'Talk écolo',
-    category:     'événement',
-    address:      '19 rue du Temple, 75004 Paris',
-    description:  'Venez ecouter les professionels en ecologie de Paris!',
-    photo:        'https://images.unsplash.com/photo-1472653816316-3ad6f10a6592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80'
-  },
-  {
-    name:         'Marche pour l\'environnement',
-    category:     'événement',
-    address:      '9 rue jean louis renardon, 69650 Saint Germain au mont d\'or',
-    description:  'Marchons ensemble pour proteger notre environnement!',
-    photo:        'https://images.unsplash.com/photo-1472653816316-3ad6f10a6592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80'
   },
 ]
 
