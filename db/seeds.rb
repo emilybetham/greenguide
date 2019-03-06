@@ -3,25 +3,25 @@ users_attributes = [
     name:         'Emily',
     email:        'emily@gmail.com',
     password:     'password',
-    photo:        'http://www.policelocale.be/files/5318/attachments/1604fc5ad08b1e718077602ba3923432.jpg'
+    photo:        image_path 'emilie.png'
   },
   {
     name:         'Dania',
     email:        'dania@gmail.com',
     password:     'password',
-    photo:        'http://www.policelocale.be/files/5318/attachments/1604fc5ad08b1e718077602ba3923432.jpg'
+    photo:        image_path 'emilie.png'
   },
   {
     name:         'Celia',
     email:        'celia@gmail.com',
     password:     'password',
-    photo:        'http://www.policelocale.be/files/5318/attachments/1604fc5ad08b1e718077602ba3923432.jpg'
+    photo:        image_path 'emilie.png'
   },
   {
     name:         'Julia',
     email:        'julia@gmail.com',
     password:     'password',
-    photo:        'http://www.policelocale.be/files/5318/attachments/1604fc5ad08b1e718077602ba3923432.jpg'
+    photo:        image_path 'emilie.png'
   }
 ]
 User.destroy_all
