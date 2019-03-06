@@ -3,7 +3,7 @@
 }
 
 .home-background img {
-  max-height: 667px;
+  max-height: 100vh;
 }
 
 .home-backgroung-img::after {
@@ -11,8 +11,8 @@
   position: relative;
   background-color: $gray;
   background: rgba(61, 61, 61, 0.49);
-  margin-top: -667px;
-  height: 667px;
+  margin-top: -100vh;
+  height: 100vh;
   width: 100%;
   content: '';
 }
@@ -27,7 +27,7 @@
 .home-wrapper {
   background-color: $dark;
   width: 353px;
-  height: 647px;
+  height: 96vh;
   background: rgba(31, 32, 65, 0.93);
   border-radius: 15px 15px 0px 0px;
   position:absolute;
