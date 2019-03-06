@@ -8,6 +8,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initStarRating } from '../plugins/init_star_rating';
 import { loadOtherReviews } from '../components/loadreviews';
 import { foldBanner } from '../components/fold_banner';
+import { hideToutesCategories } from '../components/hide_toutes_categories';
 
 global.initMapbox = initMapbox;
 global.initStarRating = initStarRating;
@@ -28,6 +29,8 @@ loadOtherReviews();
 // Fold up banner
 foldBanner();
 
+// Hide toutes categories button
+hideToutesCategories();
 
 // Map searchbar
 // import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
