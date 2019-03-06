@@ -68,7 +68,6 @@ class LocationsController < ApplicationController
     when 'marché' then 'marches-pin.png'
     when 'vêtement' then 'vetement-pin.png'
     when 'jardin partagé' then 'garden.png'
-    when 'événement' then 'rating-pin.png'
     else
       'compost-pin.png'
     end
