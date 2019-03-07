@@ -25,8 +25,8 @@ function openModal() {
 // };
 
 refreshMap('<%= j render "map" %>');
-
-initMapbox();
+const center = '<%= params.dig(:search, :address).blank? %>' === 'true';
+initMapbox(center);
 closeModal();
 // allCategoriesSelector();
 
