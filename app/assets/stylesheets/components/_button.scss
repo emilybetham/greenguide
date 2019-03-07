@@ -61,14 +61,15 @@
 .filter {
   background-color: $green;
   border-radius: 50%;
-  margin-left: 260px;
-  margin-top: -87px;
+  // margin-left: 260px;
+  // margin-top: -87px;
   width: 70px;
   height: 70px;
   padding: 14px;
   z-index: 300;
   position: absolute;
-  bottom: 18px;
-  left: -107px;
+  bottom: -24px;
+  left: 50%;
+  transform: translate(-50%, -50%);
   box-shadow: 1px 11px 22px #888888;
 }
