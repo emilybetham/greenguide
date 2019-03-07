@@ -25,6 +25,7 @@ const center = (map) => {
     const currentLocationControl = document.querySelector('.mapboxgl-ctrl-geolocate');
     currentLocationControl.click();
   }, 500);
+  // return currentLocationControl;
 }
 
 const buildMap = (mapElement) => {
@@ -78,6 +79,9 @@ const initMapbox = () => {
     center(map);
     const markers = buildMarkers(mapElement, map);
 
+    // Making sure the itinerary is also called in init and can be used upon any refresh
+    const coordinates = getUserCoordinates(map, bindMarkersToRoute);
+
     // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
     return map;
   }
@@ -85,6 +89,7 @@ const initMapbox = () => {
 
 // ITINERAIRES
 const bindMarkersToRoute = (map, userCoordinates) => {
+  // debugger
   document.querySelectorAll(".marker").forEach((marker) => {
     marker.addEventListener('click', (event) => {
       //: get markers coordinates
