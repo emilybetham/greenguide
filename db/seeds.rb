@@ -1,32 +1,3 @@
-users_attributes = [
-  {
-    name:         'Emily',
-    email:        'emily@gmail.com',
-    password:     'password',
-    photo:        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Crystal_Clear_kdm_user_female.svg/1024px-Crystal_Clear_kdm_user_female.svg.png'
-  },
-  {
-    name:         'Dania',
-    email:        'dania@gmail.com',
-    password:     'password',
-    photo:        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Crystal_Clear_kdm_user_female.svg/1024px-Crystal_Clear_kdm_user_female.svg.png'
-  },
-  {
-    name:         'Celia',
-    email:        'celia@gmail.com',
-    password:     'password',
-    photo:        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Crystal_Clear_kdm_user_female.svg/1024px-Crystal_Clear_kdm_user_female.svg.png'
-  },
-  {
-    name:         'Julia',
-    email:        'julia@gmail.com',
-    password:     'password',
-    photo:        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Crystal_Clear_kdm_user_female.svg/1024px-Crystal_Clear_kdm_user_female.svg.png'
-  }
-]
-User.destroy_all
-User.create!(users_attributes)
-
 Location.destroy_all
 puts 'destroyed all'
 
