@@ -1,7 +1,13 @@
 <div id="card_review">
   <p class= "p_comment"> « <%= review.comment %> »</p>
   <div class= "review-user-content">
-    <div> <%= image_tag review.user&.photo, class: "photo-avatar-comment" %></div>
+    <div>
+      <% if review.user.photo.file.nil? == false %>
+          <%= cl_image_tag review.user.photo, crop: :thumb, gravity: :face, class: 'photo-avatar-comment' %>
+      <% else %>
+            <%= cl_image_tag('vert_1.png', class: 'photo-avatar-comment') %>
+      <% end %>
+    </div>
     <div class= "review-rating-name">
       <p class= "p_name"> <%= review.user.name %></p>
       <div id="p_review_rating">
