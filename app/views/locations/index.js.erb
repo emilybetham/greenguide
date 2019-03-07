@@ -14,19 +14,9 @@ function openModal() {
  })
 };
 
-// function allCategoriesSelector() {
-//   const allCategories = ('<%= Location::CATEGORIES %>')
-//   console.log(allCategories);
-//     allCategories.addEventListener("click", (event) => {
-//       allCategories.forEach((category) => {
-//       category.click();
-//     })
-//   })
-// };
 
-refreshMap('<%= j render "map" %>');
-
-initMapbox();
 closeModal();
-// allCategoriesSelector();
+refreshMap('<%= j render "map" %>');
+initMapbox();
+
 
