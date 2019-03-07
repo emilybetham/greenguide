@@ -72,7 +72,7 @@
 
 .itinerary-btn {
   color: white;
-  background-color: #6FCF97 !important;
+  background-color: $green !important;
   width: 50px !important;
   height: 50px !important;
   font-size: 22px !important;
@@ -81,7 +81,7 @@
   position: absolute !important;
   top: 181px !important;
   right: 13px !important;
-  border: 1px solid #6FCF97;
+  border: 1px solid $green;
 }
 
 .new_review {
