@@ -115,7 +115,7 @@ const bindMarkersToRoute = (map, userCoordinates) => {
 
             const tripInstructions = [];
             console.log(btnItinerary.dataset.logo)
-            alert(instructions.innerHTML = '🌱 Durée du trajet: ' + Math.floor(data.routes[0].legs[0].duration / 60) + ' minutes 😊');
+            alert(instructions.innerHTML = '🌱 Durée du trajet: ' + Math.floor(data.routes[0].legs[0].duration / 60) + ' minutes 🚶‍♀🚶‍♂');
           });
         const close = document.querySelector(`${cardModalId} #card-close-modal`).click();
       });
