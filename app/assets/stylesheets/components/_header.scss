@@ -18,14 +18,17 @@
   position: absolute;
   top: 2px;
   right: 5px;
-}
-
-.header a {
-  margin: 0 0;
   color: white;
-  font-size: 40px !important;
 }
 
-.croix p {
+.croix a {
   margin-top: -6px!important;
+  color: white!important;
+  font-size: 30px !important;
 }
+
+.croix a:hover {
+  color: white!important;
+  opacity: 0.8!important;
+}
+

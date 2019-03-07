@@ -1,14 +1,17 @@
 <div class="header">
   <h3>Mon profil</h3>
     <div class="croix">
-      <p><%= link_to '+', locations_path %></p>
+      <%= link_to '+', locations_path %>
     </div>
 </div>
 
 <div class="form-container">
   <div class="profile_description">
-      <%= image_tag "emilie.png", class: "avatar" %>
-      <!-- quand on mettra cl_image_tag avec cloudinary on rajoutera:  crop: :thumb, gravity: :face  -->
+    <% if @user.photo.file.nil? == false %>
+        <%= cl_image_tag @user.photo, crop: :thumb, gravity: :face, class: 'avatar' %>
+    <% else %>
+          <%= cl_image_tag('vert_1.png', class: 'avatar') %>
+    <% end %>
     <div class= "description_text">
       <h2><%= @user.name %></h2>
       <p>16 Villa Gaudelet, 75011 Paris<%= @user.address %></p>

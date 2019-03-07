@@ -10,7 +10,8 @@ gem 'puma'
 gem 'rails', '5.2.2'
 gem 'redis'
 gem 'pundit'
-
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
 
 # Front
 gem 'autoprefixer-rails'

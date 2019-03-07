@@ -17,10 +17,11 @@ const center = (map, centered) => {
     positionOptions: {
       enableHighAccuracy: true,
       timeout: 5000,
-      maximumAge: 0
+      maximumAge: 0,
     },
     trackUserLocation: true
   }));
+<<<<<<< HEAD
 
   if (centered) {
     setTimeout(() => {
@@ -28,6 +29,13 @@ const center = (map, centered) => {
       currentLocationControl.click();
     }, 500);
   }
+=======
+  setTimeout(() => {
+    const currentLocationControl = document.querySelector('.mapboxgl-ctrl-geolocate');
+    currentLocationControl.click();
+  }, 500);
+  // return currentLocationControl;
+>>>>>>> master
 }
 
 const buildMap = (mapElement) => {
@@ -85,6 +93,9 @@ const initMapbox = (centered = true) => {
 
     const markers = buildMarkers(mapElement, map);
 
+    // Making sure the itinerary is also called in init and can be used upon any refresh
+    const coordinates = getUserCoordinates(map, bindMarkersToRoute);
+
     // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
     return map;
   }
@@ -92,6 +103,7 @@ const initMapbox = (centered = true) => {
 
 // ITINERAIRES
 const bindMarkersToRoute = (map, userCoordinates) => {
+  // debugger
   document.querySelectorAll(".marker").forEach((marker) => {
     marker.addEventListener('click', (event) => {
       //: get markers coordinates

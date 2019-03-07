@@ -14,19 +14,11 @@ function openModal() {
  })
 };
 
-// function allCategoriesSelector() {
-//   const allCategories = ('<%= Location::CATEGORIES %>')
-//   console.log(allCategories);
-//     allCategories.addEventListener("click", (event) => {
-//       allCategories.forEach((category) => {
-//       category.click();
-//     })
-//   })
-// };
 
+closeModal();
 refreshMap('<%= j render "map" %>');
 const center = '<%= params.dig(:search, :address).blank? %>' === 'true';
 initMapbox(center);
-closeModal();
-// allCategoriesSelector();
+
+
 
