@@ -12,20 +12,22 @@ const getUserCoordinates = (map, callback) => {
   }
 }
 
-const center = (map) => {
+const center = (map, centered) => {
   map.addControl(new mapboxgl.GeolocateControl({
     positionOptions: {
       enableHighAccuracy: true,
       timeout: 5000,
-      maximumAge: 0,
+      maximumAge: 0
     },
     trackUserLocation: true
   }));
-  setTimeout(() => {
-    const currentLocationControl = document.querySelector('.mapboxgl-ctrl-geolocate');
-    currentLocationControl.click();
-  }, 500);
-  // return currentLocationControl;
+
+  if (centered) {
+    setTimeout(() => {
+      const currentLocationControl = document.querySelector('.mapboxgl-ctrl-geolocate');
+      currentLocationControl.click();
+    }, 500);
+  }
 }
 
 const buildMap = (mapElement) => {
@@ -39,11 +41,13 @@ const buildMap = (mapElement) => {
       zoom: 12
     });
   } else {
+    // const currentLocationControl = document.querySelector('.mapboxgl-ctrl-geolocate-waiting');
+    // currentLocationControl.click();
     return new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v10',
       center: searchedAddressCoordinates,
-      zoom: 15
+      zoom: 15,
     });
   };
 }
@@ -69,17 +73,18 @@ const buildMarkers = (mapElement, map) => {
   return markers;
 }
 
-const initMapbox = () => {
+const initMapbox = (centered = true) => {
   const mapElement = document.getElementById('map');
 
   if (mapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
 
-    const map = buildMap(mapElement);
-    center(map);
+    const map = buildMap(mapElement)//.then(console.log(document.querySelector('.mapboxgl-ctrl-geolocate')));
+
+    center(map, centered);
+
     const markers = buildMarkers(mapElement, map);
 
-    // Making sure the itinerary is also called in init and can be used upon any refresh
     const coordinates = getUserCoordinates(map, bindMarkersToRoute);
 
     // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
@@ -89,7 +94,6 @@ const initMapbox = () => {
 
 // ITINERAIRES
 const bindMarkersToRoute = (map, userCoordinates) => {
-  // debugger
   document.querySelectorAll(".marker").forEach((marker) => {
     marker.addEventListener('click', (event) => {
       //: get markers coordinates
