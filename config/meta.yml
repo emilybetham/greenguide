@@ -1,0 +1,4 @@
+meta_product_name: "GreenGuide"
+meta_title: "GreenGuide - Vivez parisien, vivez écolo !"
+meta_description: "Répertorier, informer et promouvoir les lieux éco-responsables de Paris."
+meta_image: "ogimage.png" # should exist in `app/assets/images/`
