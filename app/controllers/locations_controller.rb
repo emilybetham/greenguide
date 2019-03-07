@@ -10,6 +10,7 @@ class LocationsController < ApplicationController
   }
 
   def index
+    @user = current_user
     skip_policy_scope
     address = params.dig(:search, :address)
     categories = params.dig(:search, :categories)
