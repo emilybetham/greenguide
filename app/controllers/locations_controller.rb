@@ -1,6 +1,14 @@
 class LocationsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
+  PHOTO = {
+    'recyclage' => 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+    'marché' => 'https://images.unsplash.com/photo-1488459716781-31db52582fe9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+    'vêtement' => 'https://images.unsplash.com/photo-1520006403909-838d6b92c22e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+    'compost' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfgGxw9RMXQCLejCPTFjen-ILBl8ZQ7vg0t7eOl1rO9Nnd3AudKg',
+    'jardin partagé' => 'https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'
+  }
+
   def index
     skip_policy_scope
     address = params.dig(:search, :address)
@@ -37,7 +45,6 @@ class LocationsController < ApplicationController
     respond_to do |format|
       format.html
       format.js
-
     end
   end
 
@@ -48,6 +55,7 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
+    @location.photo = PHOTO[@location.category]
     if @location.save
       redirect_to locations_path
     else

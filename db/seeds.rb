@@ -380,7 +380,7 @@ end
 #     category: "recyclage",
 #     address:"#{raw_location["fields"]["ad_nvo"]}, #{raw_location["fields"]["voie"]}, #{raw_location["fields"]["ardt"]}, Paris",
 #     description: "Point de recyclage du verre",
-#     photo: "http://www.policelocale.be/files/5318/attachments/1604fc5ad08b1e718077602ba3923432.jpg",
+#     photo: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
 #     status: "validate"
 #   )
 #   location.save
