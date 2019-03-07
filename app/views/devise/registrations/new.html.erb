@@ -1,9 +1,13 @@
-<h2>S'inscrire</h2>
-<div class="container">
+<div class="header">
+  <h3>S'inscrire</h3>
+    <div class="croix">
+      <p><%= link_to '+', locations_path %></p>
+    </div>
+</div>
+
+<div class="form-container">
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
-
-    <div class="form-inputs">
       <%= f.input :email,
                   required: true,
                   autofocus: true,
@@ -23,10 +27,9 @@
                   label: 'Confirmer le mot de passe' %>
       <%= f.input :photo %>
       <%= f.input :photo_cache, as: :hidden %>
-    </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "S'inscrire" %>
+    <div class="submit-group">
+      <%= f.button :submit, "S'inscrire", class: "button button-form" %>
     </div>
   <% end %>
 

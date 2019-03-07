@@ -1,21 +1,26 @@
-<h2>Connexion</h2>
+<div class="header">
+  <h3>Connexion</h3>
+    <div class="croix">
+      <p><%= link_to '+', locations_path %></p>
+    </div>
+</div>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" },
-                label: 'Mot de passe' %>
-    <%= f.input :remember_me, label: 'Se souvenir de moi', as: :boolean if devise_mapping.rememberable? %>
-  </div>
+<div class="form-container">
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= f.input :email,
+                  required: false,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" } %>
+      <%= f.input :password,
+                  required: false,
+                  input_html: { autocomplete: "current-password" },
+                  label: 'Mot de passe' %>
+      <%= f.input :remember_me, label: 'Se souvenir de moi', as: :boolean if devise_mapping.rememberable? %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Connexion" %>
-  </div>
-<% end %>
+    <div class="submit-group">
+      <%= f.button :submit, "Connexion", class: "button button-form" %>
+    </div>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>
