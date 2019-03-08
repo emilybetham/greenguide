@@ -14,21 +14,14 @@
     <% end %>
     <div class= "description_text">
       <h2><%= @user.name %></h2>
-      <p>16 Villa Gaudelet, 75011 Paris<%= @user.address %></p>
+      <p><%= @user.address %></p>
     </div>
   </div>
 
   <hr>
   <%= link_to 'Suggérer une adresse', new_location_path %>
   <hr>
-  <%= link_to 'Vous avez une remarque ?', new_location_path %>
-  <hr>
-  <div class="geoloc">
-  <p>Géolocalisation</p>
-  <p><%= image_tag 'toggle-on.png', width: 40 %>
-  </p>
-  </div>
-  <hr>
+</div>
 
   <div class="button">
     <%= link_to destroy_user_session_path, method: :delete do %>
