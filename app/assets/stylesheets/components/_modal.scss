@@ -19,7 +19,6 @@
 }
 
 .select-category > input + .category-choice {
-  opacity: .4;
   padding: 15px;
   border-radius: 5px;
   text-align: center;
@@ -28,7 +27,7 @@
   margin-right: 5px;
   background: $green;
   margin: 4px;
-  opacity: .4;
+  opacity: .6;
 }
 
 .select-category > input:checked + .category-choice {
@@ -111,9 +110,8 @@ label.category-choice {
   bottom: 36px;
   left: 14px;
   background-color: #d1cccc !important;
-  color: black;
-  font-weight: lighter !important;
   width: 100px;
+  color: $dark;
 }
 
 .modal-footer {

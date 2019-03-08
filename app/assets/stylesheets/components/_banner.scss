@@ -87,10 +87,13 @@
 }
 
 .update-arrow-reduced-banner {
-  position: absolute;
-  top: -6px;
-  right: 176px;
-  transform: rotate(180deg);
+   margin-bottom: 5px;
+   position: absolute;
+   left: 50%;
+   right: 50%;
+   top: 50%;
+   transform: rotate(180deg);
+   margin-top: -9px !important;
 }
 
 
