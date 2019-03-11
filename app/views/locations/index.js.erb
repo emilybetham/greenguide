@@ -1,6 +1,6 @@
 function refreshMap(newMap) {
- const filteredMap = document.getElementById('map');
- filteredMap.outerHTML = newMap;
+  const filteredMap = document.getElementById('map');
+  filteredMap.outerHTML = newMap;
 };
 
 function closeModal() {
@@ -14,17 +14,6 @@ function openModal() {
  })
 };
 
-function refreshAfterFilter() {
-  const goButtonFilterAndAddress = document.getElementById('go-button');
-    goButtonFilterAndAddress.addEventListener("click", (event) => {
-    refreshMap();
-    });
-}
-
-
-
 closeModal();
 refreshMap('<%= j render "map" %>');
 initMapbox('<%= params.dig(:search, :address).blank? %>' === 'true');
-// refreshAfterFilter();
-
