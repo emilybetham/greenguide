@@ -36,11 +36,8 @@ foldBanner();
 // Hide toutes categories button
 hideToutesCategories();
 
-// Refreshing after filters
-// refreshAfterFilter();
-
 // Alert pour geoloc
-// alertGeoloc();
+alertGeoloc();
 
 // Map searchbar
 // import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
