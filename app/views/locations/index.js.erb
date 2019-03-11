@@ -14,11 +14,17 @@ function openModal() {
  })
 };
 
+function refreshAfterFilter() {
+  const goButtonFilterAndAddress = document.getElementById('go-button');
+    goButtonFilterAndAddress.addEventListener("click", (event) => {
+    refreshMap();
+    });
+}
+
+
 
 closeModal();
 refreshMap('<%= j render "map" %>');
-const center = '<%= params.dig(:search, :address).blank? %>' === 'true';
-initMapbox(center);
-
-
+initMapbox('<%= params.dig(:search, :address).blank? %>' === 'true');
+// refreshAfterFilter();
 

@@ -10,9 +10,12 @@ import { loadOtherReviews } from '../components/loadreviews';
 import { foldBanner } from '../components/fold_banner';
 import { hideToutesCategories } from '../components/hide_toutes_categories';
 import { alertGeoloc } from '../components/alert_geoloc';
+// import { refreshAfterFilter } from '../../views/locations/index.js.erb';
+
 
 global.initMapbox = initMapbox;
 global.initStarRating = initStarRating;
+
 
 // 1. Draw map
 const map = initMapbox();
@@ -32,6 +35,9 @@ foldBanner();
 
 // Hide toutes categories button
 hideToutesCategories();
+
+// Refreshing after filters
+// refreshAfterFilter();
 
 // Alert pour geoloc
 // alertGeoloc();
