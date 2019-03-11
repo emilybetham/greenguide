@@ -1,6 +1,6 @@
 function refreshMap(newMap) {
- const filteredMap = document.getElementById('map');
- filteredMap.outerHTML = newMap;
+  const filteredMap = document.getElementById('map');
+  filteredMap.outerHTML = newMap;
 };
 
 function closeModal() {
@@ -14,11 +14,8 @@ function openModal() {
  })
 };
 
-
 closeModal();
 refreshMap('<%= j render "map" %>');
-const center = '<%= params.dig(:search, :address).blank? %>' === 'true';
-initMapbox(center);
-
+initMapbox('<%= params.dig(:search, :address).blank? %>' === 'true');
 
 

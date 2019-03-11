@@ -14,6 +14,7 @@ import { alertGeoloc } from '../components/alert_geoloc';
 global.initMapbox = initMapbox;
 global.initStarRating = initStarRating;
 
+
 // 1. Draw map
 const map = initMapbox();
 // 2. Get User Position and Bind Markers to Routes

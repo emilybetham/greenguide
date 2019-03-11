@@ -28,6 +28,7 @@ const center = (map, centered) => {
       currentLocationControl.click();
     }, 500);
   }
+  // return center;
 }
 
 const buildMap = (mapElement) => {
