@@ -25,13 +25,14 @@
   cursor: pointer;
   min-width: 150px;
   margin-right: 5px;
-  background: $green;
   margin: 4px;
-  opacity: .6;
+  border: 2px solid #229653;
+  color: black;
 }
 
 .select-category > input:checked + .category-choice {
-  opacity: 1;
+  background: #229653;
+  color: white;
 }
 
 .select-category {
