@@ -14,6 +14,26 @@ function openModal() {
  })
 };
 
+function showGeolocButtonAfterAddressSearch() {
+  const geolocButton = document.querySelector('.mapboxgl-ctrl.mapboxgl-ctrl-group');
+<% address = params.dig(:search, :address) %>
+<% if (address.present? && address != "") %>
+  geolocButton.classList.add("mapboxgl-show-button-after-address-search")
+<% end %>
+};
+
+function hideAndRefreshGeolocButtonAfterAddressSearch() {
+  const geolocButton = document.querySelector('.mapboxgl-ctrl.mapboxgl-ctrl-group');
+  const clearAddressButton = document.querySelector('.ap-input-icon.ap-icon-clear');
+  geolocButton.addEventListener("click", (event) => {
+    geolocButton.classList.remove("mapboxgl-show-button-after-address-search")
+    clearAddressButton.click();
+  })
+}
+
+
 closeModal();
 refreshMap('<%= j render "map" %>');
 initMapbox('<%= params.dig(:search, :address).blank? %>' === 'true');
+showGeolocButtonAfterAddressSearch();
+hideAndRefreshGeolocButtonAfterAddressSearch();
