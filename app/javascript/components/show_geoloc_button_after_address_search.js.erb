@@ -1,0 +1,11 @@
+const showGeolocButtonAfterAddressSearch = () => {
+  const geolocButton = document.querySelector(.mapboxgl-ctrl.mapboxgl-ctrl-group);
+  <% address = params.dig(:search, :address) %>
+  <% if address.present? && address != ""%>
+    geolocButton.classList.add(".mapboxgl-show-button-after-address-search")
+  <% end %>
+
+
+}
+
+export { showGeolocButtonAfterAddressSearch };

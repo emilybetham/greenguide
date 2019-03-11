@@ -31,8 +31,13 @@
 
 .mapboxgl-ctrl.mapboxgl-ctrl-group {
   position: absolute !important;
-  top: -9999px !important;
-  left: -9999px !important;
+  top: -9999px;
+  left: -9999px;
+  }
+
+.mapboxgl-show-button-after-address-search {
+  top: 20px;
+  left: 67px;
   }
 
 .mapboxgl-ctrl-geocoder {
