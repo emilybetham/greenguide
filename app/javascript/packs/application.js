@@ -12,6 +12,8 @@ import { hideToutesCategories } from '../components/hide_toutes_categories';
 import { alertGeoloc } from '../components/alert_geoloc';
 // import { refreshMap } from '../../views/locations/index.js.erb';
 
+
+
 global.initMapbox = initMapbox;
 global.initStarRating = initStarRating;
 // global.refreshMap = refreshMap;
@@ -40,7 +42,7 @@ foldBanner();
 hideToutesCategories();
 
 // Alert pour geoloc
-// alertGeoloc();
+alertGeoloc();
 
 // Map searchbar
 // import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
