@@ -1,7 +1,7 @@
 import mapboxgl from 'mapbox-gl';
 // import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import MapboxDraw from '@mapbox/mapbox-gl-draw';
-
+// import { refreshMap } from '../../views/locations/index.js.erb';
 
 const getUserCoordinates = (map, callback) => {
   const mapElement = document.getElementById('map');
@@ -13,6 +13,7 @@ const getUserCoordinates = (map, callback) => {
 }
 
 const center = (map, centered) => {
+  debugger
   map.addControl(new mapboxgl.GeolocateControl({
     positionOptions: {
       enableHighAccuracy: true,
@@ -23,12 +24,12 @@ const center = (map, centered) => {
   }));
 
   if (centered) {
+    debugger
     setTimeout(() => {
       const currentLocationControl = document.querySelector('.mapboxgl-ctrl-geolocate');
       currentLocationControl.click();
     }, 500);
   }
-  // return center;
 }
 
 const buildMap = (mapElement) => {
@@ -76,6 +77,7 @@ const buildMarkers = (mapElement, map) => {
 
 const initMapbox = (centered = true) => {
   const mapElement = document.getElementById('map');
+  debugger
 
   if (mapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -174,6 +176,8 @@ const draw = new MapboxDraw({
 // adds the route as a layer on the map
 const addRoute = (map, coords) => {
  // check if the route is already loaded
+//  const currentLocationControl = document.querySelector('.mapboxgl-ctrl-geolocate');
+// console.log(currentLocationControl);
   if (map.getSource('route')) {
     map.removeLayer('route')
     map.removeSource('route')
@@ -205,4 +209,15 @@ const addRoute = (map, coords) => {
   };
 };
 
-export { initMapbox, getUserCoordinates, bindMarkersToRoute };
+const okRefresh = () => {
+  const currentLocationControl = document.querySelector('.mapboxgl-ctrl-geolocate');
+  console.log(currentLocationControl);
+  const okRefreshButton = document.getElementById('ok-refresh-btn-itinirary');
+  okRefreshButton.addEventListener('click', (event) => {
+    // refreshMap(map);
+    initMapbox()
+    console.log(currentLocationControl);
+  });
+}
+
+export { initMapbox, getUserCoordinates, bindMarkersToRoute, okRefresh };
