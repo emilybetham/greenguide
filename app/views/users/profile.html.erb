@@ -23,7 +23,7 @@
   <hr>
 </div>
 
-  <div class="button">
+  <div class="button" id="button-deconnexion">
     <%= link_to destroy_user_session_path, method: :delete do %>
       <%= t(".sign_out", default: "Déconnexion") %>
     <% end %>
