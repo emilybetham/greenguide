@@ -12,22 +12,23 @@ const getUserCoordinates = (map, callback) => {
   }
 }
 
+const geolocButtonClick = () => {
+  const currentLocationControl = document.querySelector('.mapboxgl-ctrl-geolocate');
+      currentLocationControl.click();
+}
+
 const center = (map, centered) => {
-  debugger
   map.addControl(new mapboxgl.GeolocateControl({
     positionOptions: {
       enableHighAccuracy: true,
       timeout: 5000,
       maximumAge: 0
     },
-    trackUserLocation: true
+    trackUserLocation: true,
   }));
-
   if (centered) {
-    debugger
     setTimeout(() => {
-      const currentLocationControl = document.querySelector('.mapboxgl-ctrl-geolocate');
-      currentLocationControl.click();
+      geolocButtonClick();
     }, 500);
   }
 }
@@ -77,7 +78,6 @@ const buildMarkers = (mapElement, map) => {
 
 const initMapbox = (centered = true) => {
   const mapElement = document.getElementById('map');
-  debugger
 
   if (mapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -209,15 +209,5 @@ const addRoute = (map, coords) => {
   };
 };
 
-const okRefresh = () => {
-  const currentLocationControl = document.querySelector('.mapboxgl-ctrl-geolocate');
-  console.log(currentLocationControl);
-  const okRefreshButton = document.getElementById('ok-refresh-btn-itinirary');
-  okRefreshButton.addEventListener('click', (event) => {
-    // refreshMap(map);
-    initMapbox()
-    console.log(currentLocationControl);
-  });
-}
 
-export { initMapbox, getUserCoordinates, bindMarkersToRoute, okRefresh };
+export { initMapbox, getUserCoordinates, bindMarkersToRoute};

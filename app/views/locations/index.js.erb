@@ -29,16 +29,13 @@ function hideAndRefreshGeolocButtonAfterAddressSearch() {
     geolocButton.classList.remove("mapboxgl-show-button-after-address-search")
     clearAddressButton.click();
   })
-}
+};
 
 
 closeModal();
 refreshMap('<%= j render "map" %>');
 initMapbox('<%= params.dig(:search, :address).blank? %>' === 'true');
-
-
-// export { refreshMap }
-
 showGeolocButtonAfterAddressSearch();
 hideAndRefreshGeolocButtonAfterAddressSearch();
+
 
