@@ -26,6 +26,9 @@
   <i id="fold-banner" class="fas fa-chevron-circle-up"></i>
 </div>
 
+<div class="refreshlink-map-itinirary">
+  <button id="link-to-button" class="button"><%= link_to 'Retour', locations_path, method: :get, remote: true %></button>
+</div>
 <!-- map -->
 <%= render "map" %>
 

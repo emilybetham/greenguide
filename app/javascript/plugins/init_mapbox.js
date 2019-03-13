@@ -1,7 +1,7 @@
 import mapboxgl from 'mapbox-gl';
 // import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import MapboxDraw from '@mapbox/mapbox-gl-draw';
-
+// import { refreshMap } from '../../views/locations/index.js.erb';
 
 const getUserCoordinates = (map, callback) => {
   const mapElement = document.getElementById('map');
@@ -12,6 +12,11 @@ const getUserCoordinates = (map, callback) => {
   }
 }
 
+const geolocButtonClick = () => {
+  const currentLocationControl = document.querySelector('.mapboxgl-ctrl-geolocate');
+      currentLocationControl.click();
+}
+
 const center = (map, centered) => {
   map.addControl(new mapboxgl.GeolocateControl({
     positionOptions: {
@@ -19,16 +24,13 @@ const center = (map, centered) => {
       timeout: 5000,
       maximumAge: 0
     },
-    trackUserLocation: true
+    trackUserLocation: true,
   }));
-
   if (centered) {
     setTimeout(() => {
-      const currentLocationControl = document.querySelector('.mapboxgl-ctrl-geolocate');
-      currentLocationControl.click();
+      geolocButtonClick();
     }, 500);
   }
-  // return center;
 }
 
 const buildMap = (mapElement) => {
@@ -174,6 +176,8 @@ const draw = new MapboxDraw({
 // adds the route as a layer on the map
 const addRoute = (map, coords) => {
  // check if the route is already loaded
+//  const currentLocationControl = document.querySelector('.mapboxgl-ctrl-geolocate');
+// console.log(currentLocationControl);
   if (map.getSource('route')) {
     map.removeLayer('route')
     map.removeSource('route')
@@ -205,4 +209,5 @@ const addRoute = (map, coords) => {
   };
 };
 
-export { initMapbox, getUserCoordinates, bindMarkersToRoute };
+
+export { initMapbox, getUserCoordinates, bindMarkersToRoute};
