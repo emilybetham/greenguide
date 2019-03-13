@@ -35,19 +35,18 @@
 .button-connexion {
   background: #219653;
   border-radius: 22px;
-  width: fit-content;
+  width: 130px;
   border-style: none;
   color: white;
   text-transform: uppercase;
   margin-bottom: 12px;
+  margin-right: -10px;
 }
 
 .button-connexion a {
   color: white;
   text-transform: uppercase;
   line-height: 38px;
-  padding-right: 20px;
-  padding-left: 20px;
 }
 
 .button-connexion a:hover {
