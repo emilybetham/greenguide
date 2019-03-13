@@ -95,14 +95,15 @@
 
 .update-arrow-reduced-banner {
    margin-bottom: 5px;
+   width: 24px;
+   height: 24px;
    position: absolute;
    left: 50%;
-   right: 50%;
    top: 50%;
+   margin-left: -12px;
+   margin-top: -2px !important;
    transform: rotate(180deg);
-   margin-top: -9px !important;
 }
-
 
 
 
