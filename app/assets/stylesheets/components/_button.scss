@@ -72,3 +72,21 @@
   transform: translate(-50%, -50%);
   box-shadow: 1px 11px 22px #888888;
 }
+
+.refreshlink-map-itinirary{
+  width: fit-content;
+  height: fit-content;
+}
+
+#link-to-button{
+  width: fit-content;
+  height: fit-content;
+  padding: 0px;
+  margin: 0px;
+  z-index: 100000;
+  position: absolute;
+  bottom: 8px;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
