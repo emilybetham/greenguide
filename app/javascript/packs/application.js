@@ -10,6 +10,7 @@ import { loadOtherReviews } from '../components/loadreviews';
 import { foldBanner } from '../components/fold_banner';
 import { hideToutesCategories } from '../components/hide_toutes_categories';
 import { alertGeoloc } from '../components/alert_geoloc';
+import { hideRetourButton } from '../components/hide_retour_button';
 // import { refreshMap } from '../../views/locations/index.js.erb';
 
 
@@ -39,6 +40,8 @@ hideToutesCategories();
 
 // Alert pour geoloc
 alertGeoloc();
+
+hideRetourButton();
 
 // Map searchbar
 // import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';

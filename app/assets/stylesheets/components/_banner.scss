@@ -31,10 +31,10 @@
 
 .mapboxgl-ctrl.mapboxgl-ctrl-group {
   position: absolute !important;
-  top: 10px;
-  left : 10px;
-  // top: -9999px;
-  // left: -9999px;
+  // top : 10px;
+  // left: 10px;
+  top: -9999px;
+  left: -9999px;
   }
 
 .mapboxgl-show-button-after-address-search {
