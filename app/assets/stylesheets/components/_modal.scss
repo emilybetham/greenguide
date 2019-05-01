@@ -13,9 +13,15 @@
 }
 
 .select-category:first-of-type > input + .category-choice {
-  background-color: $dark!important;
+  padding: 15px;
   border-radius: 5px;
-  width: 305px;
+  text-align: center;
+  cursor: pointer;
+  min-width: 150px;
+  margin-right: 5px;
+  margin: 4px;
+  border: 2px solid #229653;
+  color: black;
 }
 
 .select-category > input + .category-choice {
@@ -23,7 +29,7 @@
   border-radius: 5px;
   text-align: center;
   cursor: pointer;
-  min-width: 150px;
+  min-width: 177px;
   margin-right: 5px;
   margin: 4px;
   border: 2px solid #229653;
