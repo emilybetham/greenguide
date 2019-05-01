@@ -8,7 +8,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initStarRating } from '../plugins/init_star_rating';
 import { loadOtherReviews } from '../components/loadreviews';
 import { foldBanner } from '../components/fold_banner';
-import { hideToutesCategories } from '../components/hide_toutes_categories';
+import { cssToutesCategories } from '../components/css_toutes_categories';
 import { alertGeoloc } from '../components/alert_geoloc';
 import { hideRetourButton } from '../components/hide_retour_button';
 // import { refreshMap } from '../../views/locations/index.js.erb';
@@ -35,8 +35,8 @@ loadOtherReviews();
 // Fold up banner
 foldBanner();
 
-// Hide toutes categories button
-hideToutesCategories();
+// css toutes categories button
+cssToutesCategories();
 
 // Alert pour geoloc
 alertGeoloc();
